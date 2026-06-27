@@ -19,9 +19,13 @@ cd "$(dirname "$0")/.."
 echo "==> Checking local images..."
 docker image inspect clearance-api:latest >/dev/null
 docker image inspect clearance-worker:latest >/dev/null
+docker image inspect clearance-mocks:latest >/dev/null 2>/dev/null || {
+  echo "==> Building clearance-mocks:latest..."
+  docker build --build-arg APP=mocks -t clearance-mocks:latest .
+}
 
 echo "==> Saving images to ${TARBALL} (may take 1–2 min)..."
-docker save clearance-api:latest clearance-worker:latest | gzip > "${TARBALL}"
+docker save clearance-api:latest clearance-worker:latest clearance-mocks:latest | gzip > "${TARBALL}"
 
 echo "==> Uploading to ${SAS_USER}@${SAS_HOST} (enter server password when prompted)..."
 ssh "${SAS_USER}@${SAS_HOST}" "mkdir -p ${REMOTE_DIR}"

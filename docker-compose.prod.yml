@@ -1,15 +1,26 @@
 # Run on Alibaba Simple Application Server (or any Docker host).
 #
 # Prerequisites:
-#   - Images tagged locally as clearance-api:latest and clearance-worker:latest
-#     OR set REG in .env and pull from ACR first.
+#   - Images tagged locally or pulled from GHCR (clearance-api/worker/mocks)
 #   - /opt/clearance/.env with DATABASE_URL, QWEN_*, OSS_*, AGENTMAIL_*, etc.
 #
 # Usage on server:
 #   cd /opt/clearance
-#   docker compose -f docker-compose.prod.yml up -d
+#   docker compose up -d
+
+# Memory caps for 1 GiB SAS instances (limits are ceilings, not reservations).
+# Host also runs cloudflared + OS — keep ~1G swap enabled (see DEPLOY-SAS-FULL.md).
 
 services:
+  mocks:
+    image: ${CLEARANCE_MOCKS_IMAGE:-clearance-mocks:latest}
+    container_name: clearance-mocks
+    restart: unless-stopped
+    environment:
+      APP: mocks
+      NODE_ENV: production
+    mem_limit: 64m
+
   api:
     image: ${CLEARANCE_API_IMAGE:-clearance-api:latest}
     container_name: clearance-api
@@ -21,7 +32,9 @@ services:
       NODE_ENV: production
     ports:
       - "3001:3001"
-    mem_limit: 384m
+    mem_limit: 300m
+    depends_on:
+      - mocks
 
   worker:
     image: ${CLEARANCE_WORKER_IMAGE:-clearance-worker:latest}
@@ -31,6 +44,11 @@ services:
     environment:
       APP: worker
       NODE_ENV: production
-    mem_limit: 384m
+      # Reach mocks by Docker service name (not localhost inside the container).
+      TICKET_API_URL: http://mocks:4001
+      IDP_API_URL: http://mocks:4002
+      NOTIFY_API_URL: http://mocks:4003
+    mem_limit: 300m
     depends_on:
+      - mocks
       - api

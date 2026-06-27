@@ -2,9 +2,10 @@
 #
 # Container image for the Clearance backend services (Fastify API + agent worker).
 #
-# Both services ship in ONE image; choose which to run with the APP build arg:
+# All backend services ship in ONE image; choose which to run with the APP build arg:
 #   docker build --build-arg APP=api    -t clearance-api    .
 #   docker build --build-arg APP=worker -t clearance-worker .
+#   docker build --build-arg APP=mocks  -t clearance-mocks  .
 #
 # Why tsx and not a compiled dist?
 #   The workspace packages (@clearance/*) are published as TypeScript SOURCE
@@ -42,13 +43,16 @@ COPY packages/integrations/agentmail/package.json   packages/integrations/agentm
 # Install only the API + worker dependency graph ("..." pulls in their workspace
 # deps). This skips the web app (Next.js) and the root puppeteer dev tool.
 # tsx is a devDependency of both services, so we must NOT pass --prod.
-RUN pnpm install --frozen-lockfile --filter "@clearance/api..." --filter "@clearance/worker..."
+RUN pnpm install --frozen-lockfile \
+    --filter "@clearance/api..." \
+    --filter "@clearance/worker..." \
+    --filter "@clearance/mocks"
 
 # 2) Copy the source. node_modules is excluded via .dockerignore, so the cached
 #    install layer above (including per-package node_modules symlinks) survives.
 COPY . .
 
-EXPOSE 3001
+EXPOSE 3001 4001 4002 4003
 
 # Run the selected service from TypeScript source.
 CMD ["sh", "-c", "exec pnpm --filter @clearance/${APP} exec tsx src/index.ts"]

@@ -10,6 +10,5 @@ dist
 DEPLOY-SAS-FULL.md
 DEPLOY-SAS.md
 DEPLOY.md
-BUILD_PLAN.md
 server.env
 clearance-backend.tar.gz
