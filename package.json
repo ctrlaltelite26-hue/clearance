@@ -14,6 +14,10 @@
     "db:push": "pnpm --filter @clearance/db push",
     "db:reset": "pnpm --filter @clearance/db reset",
     "build": "pnpm run -r build",
+    "vercel:link": "cd apps/web && vercel link",
+    "vercel:env": "bash scripts/push-vercel-env.sh production",
+    "vercel:env:preview": "bash scripts/push-vercel-env.sh preview",
+    "vercel:env:all": "bash scripts/push-vercel-env.sh all",
     "screenshots:ui": "node scripts/screenshot-uis.mjs",
     "fix:stitch-html": "node scripts/fix-stitch-html.mjs"
   },
