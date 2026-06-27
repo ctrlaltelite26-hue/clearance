@@ -109,9 +109,24 @@ jobs:
 
             docker compose up -d --force-recreate
 
-            echo "==> Health check"
-            sleep 5
-            curl -sf http://127.0.0.1:3001/health
+            echo "==> Waiting for API (up to 90s on 1 GiB instances)..."
+            ok=0
+            for i in $(seq 1 45); do
+              if curl -sf http://127.0.0.1:3001/health; then
+                echo ""
+                ok=1
+                break
+              fi
+              sleep 2
+            done
+
             docker compose ps
+
+            if [ "$ok" -ne 1 ]; then
+              echo "==> Health check failed — API logs:"
+              docker compose logs api --tail 80
+              docker compose logs worker --tail 40
+              exit 1
+            fi
 
             docker image prune -f
