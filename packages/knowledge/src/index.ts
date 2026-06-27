@@ -297,13 +297,32 @@ export async function ingestKnowledgeSource(input: {
   return { chunkCount: chunks.length };
 }
 
-function decodeBase64(input: string): string {
-  return Buffer.from(input, "base64").toString("utf8");
-}
-
 function stripPdfLikeText(input: string): string {
   // Basic heuristic fallback when pdf parser is unavailable.
   return input.replace(/\u0000/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function extractTextFromBuffer(buffer: Buffer, contentType?: string | null): string {
+  if (!buffer.length) return "";
+
+  if (contentType === "application/pdf") {
+    return stripPdfLikeText(buffer.toString("utf8"));
+  }
+  if (
+    contentType ===
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  ) {
+    return stripPdfLikeText(buffer.toString("utf8"));
+  }
+
+  return buffer.toString("utf8");
+}
+
+export function extractKnowledgeTextFromBuffer(input: {
+  buffer: Buffer;
+  contentType?: string | null;
+}): string {
+  return extractTextFromBuffer(input.buffer, input.contentType);
 }
 
 export async function extractKnowledgeText(input: {
@@ -314,18 +333,8 @@ export async function extractKnowledgeText(input: {
   if (input.text?.trim()) return input.text;
   if (!input.base64Content) return "";
 
-  const decoded = decodeBase64(input.base64Content);
-  if (!decoded) return "";
+  const buffer = Buffer.from(input.base64Content, "base64");
+  if (!buffer.length) return "";
 
-  if (input.contentType === "application/pdf") {
-    return stripPdfLikeText(decoded);
-  }
-  if (
-    input.contentType ===
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-  ) {
-    return stripPdfLikeText(decoded);
-  }
-
-  return decoded;
+  return extractTextFromBuffer(buffer, input.contentType);
 }

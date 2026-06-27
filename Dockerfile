@@ -39,6 +39,7 @@ COPY packages/db/package.json                       packages/db/package.json
 COPY packages/knowledge/package.json                packages/knowledge/package.json
 COPY packages/policy/package.json                   packages/policy/package.json
 COPY packages/integrations/agentmail/package.json   packages/integrations/agentmail/package.json
+COPY packages/integrations/alibaba/package.json     packages/integrations/alibaba/package.json
 
 # Install only the API + worker dependency graph ("..." pulls in their workspace
 # deps). This skips the web app (Next.js) and the root puppeteer dev tool.

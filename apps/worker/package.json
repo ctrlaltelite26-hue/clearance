@@ -14,6 +14,7 @@
     "@clearance/agent": "workspace:*",
     "@clearance/db": "workspace:*",
     "@clearance/integrations-agentmail": "workspace:*",
+    "@clearance/integrations-alibaba": "workspace:*",
     "@clearance/knowledge": "workspace:*",
     "@clearance/policy": "workspace:*",
     "dotenv": "^16.4.7",

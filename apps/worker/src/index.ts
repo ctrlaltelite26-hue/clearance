@@ -53,8 +53,10 @@ import {
   resolveSenderEmail,
   isNotFoundError,
 } from "@clearance/integrations-agentmail";
+import { downloadKnowledgeObject, contentTypeFromStoragePath } from "@clearance/integrations-alibaba";
 import {
   extractKnowledgeText,
+  extractKnowledgeTextFromBuffer,
   ingestKnowledgeSource,
   searchKnowledge,
   searchKnowledgeWithSupplements,
@@ -1714,11 +1716,37 @@ async function processJob(jobId: string) {
       if (!payload.sourceId) {
         throw new Error("ingest_knowledge job missing sourceId");
       }
-      const text = await extractKnowledgeText({
-        text: payload.text,
-        base64Content: payload.base64Content,
-        contentType: payload.contentType,
-      });
+
+      const [source] = await db
+        .select()
+        .from(knowledgeSources)
+        .where(eq(knowledgeSources.id, payload.sourceId))
+        .limit(1);
+
+      if (!source) {
+        throw new Error(`Knowledge source not found: ${payload.sourceId}`);
+      }
+
+      let text: string;
+      if (source.storagePath) {
+        const downloaded = await downloadKnowledgeObject(source.storagePath);
+        const contentType =
+          payload.contentType ??
+          downloaded.contentType ??
+          contentTypeFromStoragePath(source.storagePath) ??
+          "text/plain";
+        text = extractKnowledgeTextFromBuffer({
+          buffer: downloaded.body,
+          contentType,
+        });
+      } else {
+        text = await extractKnowledgeText({
+          text: payload.text,
+          base64Content: payload.base64Content,
+          contentType: payload.contentType,
+        });
+      }
+
       await ingestKnowledgeSource({
         sourceId: payload.sourceId,
         text,

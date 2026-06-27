@@ -26,6 +26,12 @@ import { resolveRequestContext, type RequestContext } from "./context.js";
 import { registerAgentMailRoutes } from "./routes/agentmail.js";
 import { registerPolicyRoutes } from "./routes/policies.js";
 import { parseAgentMailSender, resolveInboundReplyTo, resolveSenderEmail, startAgentMailIngest, isAgentMailConfigured, maybeSyncAgentMailOnRead } from "@clearance/integrations-agentmail";
+import {
+  deleteKnowledgeObject,
+  isOssConfigured,
+  requireOssConfigured,
+  uploadKnowledgeObject,
+} from "@clearance/integrations-alibaba";
 
 const createCaseSchema = z.object({
   rawInput: z.string().min(1),
@@ -388,6 +394,8 @@ app.get("/health", async () => {
     ok: dbOk,
     service: "clearance-api",
     db: dbOk ? "up" : "down",
+    oss: isOssConfigured() ? "configured" : "missing",
+    region: process.env.OSS_REGION ?? null,
   };
 });
 
@@ -611,9 +619,13 @@ async function queueKnowledgeIngest(
     replaceSourceId?: string | null;
   },
 ) {
+  requireOssConfigured();
+
   const db = getDb();
   const sourceType = input.base64Content ? "file" : "paste";
+  const contentType = input.contentType ?? "text/plain";
   let source;
+  let previousStoragePath: string | null = null;
 
   if (input.replaceSourceId) {
     const [existing] = await db
@@ -634,6 +646,7 @@ async function queueKnowledgeIngest(
       );
     }
 
+    previousStoragePath = existing.storagePath;
     await cancelPendingKnowledgeJobs(existing.id);
 
     [source] = await db
@@ -660,20 +673,68 @@ async function queueKnowledgeIngest(
       .returning();
   }
 
-  const [job] = await db
-    .insert(jobs)
-    .values({
-      threadId: null,
-      type: "ingest_knowledge",
-      status: "pending",
-      payload: {
-        sourceId: source.id,
-        text: input.text ?? null,
-        base64Content: input.base64Content ?? null,
-        contentType: input.contentType ?? "text/plain",
-      },
-    })
+  let body: Buffer;
+  if (input.base64Content) {
+    body = Buffer.from(input.base64Content, "base64");
+    if (!body.length) {
+      throw new Error("Uploaded file is empty");
+    }
+  } else if (input.text?.trim()) {
+    body = Buffer.from(input.text.trim(), "utf8");
+  } else {
+    throw new Error("Provide text or base64Content");
+  }
+
+  let storagePath: string;
+  try {
+    storagePath = await uploadKnowledgeObject({
+      organizationId: ctx.organization.id,
+      sourceId: source.id,
+      body,
+      contentType,
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    await db
+      .update(knowledgeSources)
+      .set({ status: "failed", error: message, updatedAt: new Date() })
+      .where(eq(knowledgeSources.id, source.id));
+    throw new Error(`OSS upload failed: ${message}`);
+  }
+
+  [source] = await db
+    .update(knowledgeSources)
+    .set({ storagePath, updatedAt: new Date() })
+    .where(eq(knowledgeSources.id, source.id))
     .returning();
+
+  if (previousStoragePath && previousStoragePath !== storagePath) {
+    await deleteKnowledgeObject(previousStoragePath).catch(() => undefined);
+  }
+
+  let job;
+  try {
+    [job] = await db
+      .insert(jobs)
+      .values({
+        threadId: null,
+        type: "ingest_knowledge",
+        status: "pending",
+        payload: {
+          sourceId: source.id,
+          contentType,
+        },
+      })
+      .returning();
+  } catch (error) {
+    await deleteKnowledgeObject(storagePath).catch(() => undefined);
+    const message = error instanceof Error ? error.message : String(error);
+    await db
+      .update(knowledgeSources)
+      .set({ status: "failed", error: message, updatedAt: new Date() })
+      .where(eq(knowledgeSources.id, source.id));
+    throw error;
+  }
 
   return { source, job };
 }
@@ -700,7 +761,11 @@ app.post("/onboarding/knowledge", async (request, reply) => {
     return reply.status(parsed.data.replaceSourceId ? 200 : 201).send(result);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    const status = message.includes("not found") ? 404 : 409;
+    const status = message.includes("not found")
+      ? 404
+      : message.includes("OSS") || message.includes("Alibaba OSS")
+        ? 503
+        : 409;
     return reply.status(status).send({ error: message });
   }
 });
@@ -737,6 +802,9 @@ app.delete("/knowledge/sources/:id", async (request, reply) => {
   }
 
   await cancelPendingKnowledgeJobs(id);
+  if (source.storagePath) {
+    await deleteKnowledgeObject(source.storagePath).catch(() => undefined);
+  }
   await db.delete(knowledgeSources).where(eq(knowledgeSources.id, id));
 
   return { ok: true, id };

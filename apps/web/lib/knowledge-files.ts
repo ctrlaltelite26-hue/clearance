@@ -61,18 +61,22 @@ export function validateKnowledgeFile(file: File): string | null {
   return null;
 }
 
-export type KnowledgeFilePayload =
-  | { title: string; text: string }
-  | { title: string; base64Content: string; contentType: string };
+export type KnowledgeFilePayload = {
+  title: string;
+  text?: string;
+  base64Content?: string;
+  contentType?: string;
+};
 
 export async function fileToKnowledgePayload(file: File): Promise<KnowledgeFilePayload> {
   const title = file.name.replace(/\.[^.]+$/, "") || file.name;
+  const contentType = contentTypeForFile(file);
   if (isTextKnowledgeFile(file)) {
-    return { title, text: await readFileAsText(file) };
+    return { title, text: await readFileAsText(file), contentType };
   }
   return {
     title,
     base64Content: await fileToBase64(file),
-    contentType: contentTypeForFile(file),
+    contentType,
   };
 }

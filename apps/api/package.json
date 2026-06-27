@@ -15,6 +15,7 @@
     "@clearance/config": "workspace:*",
     "@clearance/db": "workspace:*",
     "@clearance/integrations-agentmail": "workspace:*",
+    "@clearance/integrations-alibaba": "workspace:*",
     "@clearance/knowledge": "workspace:*",
     "@clearance/policy": "workspace:*",
     "@fastify/cors": "^11.0.0",
