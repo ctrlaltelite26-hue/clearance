@@ -19,7 +19,7 @@ services:
     environment:
       APP: mocks
       NODE_ENV: production
-    mem_limit: 64m
+    mem_limit: 256m
 
   api:
     image: ${CLEARANCE_API_IMAGE:-clearance-api:latest}
