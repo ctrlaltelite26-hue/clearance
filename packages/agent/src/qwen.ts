@@ -138,6 +138,7 @@ Mark access.propose, access.grant, and agentmail.draft.send as risky. Everything
 Do NOT include agentmail.draft.create, agentmail.draft.send, notify.draft_reply, or agentmail.thread.get — drafting, send, and thread load are automatic.
 For case.ask_clarification, params MUST be { "questions": string[] } with at least one question.
 For ticket.create, params MUST be { "title": string, "priority": "low" | "medium" | "high" }.
+For ticket.update, params MUST be { "note": string } only — do NOT include ticketId (runtime uses the ticket from ticket.create).
 For access.propose and access.grant, params MUST be { "role": string, "app": string }.
 Return JSON: { "steps": [{ "tool": string, "params": object, "risk": "safe"|"risky", "rationale": string }] }`;
 

@@ -9,6 +9,13 @@ import { isRemoteAgentMailDraftId } from "./integrations/agentmail-utils.js";
 import { knowledgeSearch } from "./integrations/knowledge.js";
 import { getToolDefinition, isRegisteredTool } from "./registry.js";
 
+/** Planner sometimes emits {{ticket.id}} — treat as missing and use runtime context. */
+function resolveTicketId(explicit: string | undefined, ctx: ToolContext): string | undefined {
+  if (!explicit?.trim()) return ctx.ticketId;
+  if (/\{\{.*\}\}/.test(explicit)) return ctx.ticketId;
+  return explicit;
+}
+
 export type ToolContext = {
   organizationId: string;
   inboxId: string;
@@ -214,7 +221,7 @@ export async function executeTool(
 
     case "ticket.update": {
       const update = params as { ticketId?: string; note: string };
-      const ticketId = update.ticketId ?? ctx.ticketId;
+      const ticketId = resolveTicketId(update.ticketId, ctx);
       if (!ticketId) throw new Error("No ticketId available for ticket.update");
       return jsonFetch(`${ctx.ticketApiUrl}/tickets/${ticketId}`, {
         method: "PATCH",

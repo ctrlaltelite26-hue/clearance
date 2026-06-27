@@ -98,6 +98,13 @@ export function normalizePlanStep(
     }
   }
 
+  if (step.tool === "ticket.update") {
+    const ticketId = params.ticketId;
+    if (typeof ticketId !== "string" || !ticketId.trim() || /\{\{.*\}\}/.test(ticketId)) {
+      delete params.ticketId;
+    }
+  }
+
   if (step.tool === "access.propose" || step.tool === "access.grant") {
     if (typeof params.app !== "string" || !params.app.trim()) {
       params.app =
