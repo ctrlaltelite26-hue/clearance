@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance AI | Support Inbox</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;500;600;800&amp;display=swap" rel="stylesheet"/>
+
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                    "tertiary-container": "#ffac5a",
+                    "on-secondary-fixed-variant": "#414750",
+                    "background": "#031426",
+                    "on-tertiary-fixed": "#2d1600",
+                    "on-tertiary-fixed-variant": "#6b3b00",
+                    "on-tertiary-container": "#744000",
+                    "on-primary-fixed": "#00201c",
+                    "surface-container-lowest": "#000f20",
+                    "on-secondary": "#2b3139",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#253649",
+                    "secondary-fixed-dim": "#c1c7d2",
+                    "inverse-on-surface": "#213245",
+                    "on-primary": "#003731",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#c1c7d2",
+                    "on-primary-fixed-variant": "#005047",
+                    "outline-variant": "#3c4a46",
+                    "on-surface-variant": "#bacac5",
+                    "surface-container-high": "#1a2b3e",
+                    "on-surface": "#d3e4fd",
+                    "outline": "#859490",
+                    "inverse-surface": "#d3e4fd",
+                    "surface-dim": "#031426",
+                    "secondary-container": "#464c55",
+                    "on-secondary-container": "#b6bcc7",
+                    "surface-variant": "#253649",
+                    "tertiary-fixed": "#ffdcc0",
+                    "primary-container": "#2dd4bf",
+                    "tertiary": "#ffd1aa",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#dde3ee",
+                    "primary": "#2DD4BF",
+                    "tertiary-fixed-dim": "#ffb875",
+                    "surface": "#031426",
+                    "surface-tint": "#3cddc7",
+                    "primary-fixed": "#62fae3",
+                    "on-background": "#d3e4fd",
+                    "surface-container": "#0f2133",
+                    "on-primary-container": "#00574d",
+                    "on-secondary-fixed": "#161c24",
+                    "primary-fixed-dim": "#3cddc7",
+                    "surface-container-low": "#0b1d2f",
+                    "surface-bright": "#2a3a4e",
+                    "on-tertiary": "#4b2800",
+                    "inverse-primary": "#006b5f",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "gutter": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "24px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "unit": "8px",
+                    "md": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "mono-sm": ["JetBrains Mono"],
+                    "headline-md": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-md": ["Geist"],
+                    "label-md": ["Geist"],
+                    "body-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0F14; /* Using background color from config */
+            color: #E8EDF4; /* on-background */
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 18px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #031426;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #253649;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #3c4a46;
+        }
+        .thread-row:hover .thread-id {
+            color: #2DD4BF;
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-0 h-screen w-60 bg-surface-container-low border-r border-outline-variant flex flex-col p-md gap-xs z-50">
+<!-- Brand & Workspace -->
+<div class="mb-lg px-2">
+<div class="flex items-center gap-2 mb-4">
+<span class="font-headline-md text-headline-md font-bold text-primary">Clearance AI</span>
+</div>
+<!-- Workspace Switcher -->
+<button class="flex items-center justify-between w-full px-3 py-2 bg-surface-container-high rounded-lg text-on-surface-variant hover:text-on-surface transition-all duration-150">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 bg-tertiary-container rounded-sm flex items-center justify-center text-[10px] font-bold text-on-tertiary-fixed">AC</div>
+<span class="font-label-md text-label-md">Acme Corp</span>
+</div>
+<span class="material-symbols-outlined">unfold_more</span>
+</button>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-container-high text-primary rounded-lg font-medium transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">inbox</span>
+<span class="font-label-md text-label-md">Inbox</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-lg transition-all duration-150 ease-in-out group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-md text-label-md">Approvals</span>
+</div>
+<span class="bg-primary-container text-on-primary-container text-[10px] px-1.5 py-0.5 rounded-full font-bold">3</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-label-md text-label-md">Automations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest rounded-lg transition-all duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<!-- CTA & Footer -->
+<div class="mt-auto space-y-4 pt-4 border-t border-outline-variant/30">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary-fixed font-bold py-2.5 rounded-lg hover:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined !text-[16px]">add</span>
+<span class="font-label-md text-label-md">New Automation</span>
+</button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md text-[11px]">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md text-[11px]">Documentation</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-60 flex-1 flex flex-col min-w-0 bg-background">
+<!-- Header / Top Bar -->
+<header class="h-14 flex items-center justify-between px-margin-desktop border-b border-outline-variant sticky top-0 bg-background/80 backdrop-blur-md z-40">
+<div class="flex items-center gap-4 flex-1">
+<!-- Search Bar -->
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-10 pr-12 py-1.5 text-body-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Search threads... (CMD+K)" type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex gap-1">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] text-on-surface-variant font-mono">⌘</kbd>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] text-on-surface-variant font-mono">K</kbd>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
+<button class="px-3 py-1 bg-primary text-on-primary-fixed rounded-full text-[12px] font-semibold whitespace-nowrap">All</button>
+<button class="px-3 py-1 bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-on-surface rounded-full text-[12px] font-medium whitespace-nowrap transition-colors">Unread</button>
+<button class="px-3 py-1 bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-on-surface rounded-full text-[12px] font-medium whitespace-nowrap transition-colors">Needs Approval</button>
+<button class="px-3 py-1 bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-on-surface rounded-full text-[12px] font-medium whitespace-nowrap transition-colors">AI-handled</button>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Close-up professional portrait of a tech professional in a dark studio setting with teal and blue rim lighting, conveying a modern and authoritative SaaS aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_ZdGK9Ar_RDLvxx1rJiHmitwT2RlPfEJr_Ee8syHkfixuqiJhClwkDDohhfJ901bjnjEncN6KKlIJNKrprsyPy68jmZKSXC59RrhSnNvUSuOkSCS9zRKtWsn3YHIz9Aml8Mu5NVORcEbqTBDqz8Iqxc_Dv3IutyK1poQ242BAbfx84HZiZg0htMLV8YNCDw6TGhDIzE4et_iE8Ts3IB80aTi8p-hrGXKh1DPLrvYVxpw3W8X4ubuPcv7ICkDS3DlNYXvfYEE-HmA-"/>
+</div>
+</div>
+</header>
+<!-- Thread List View -->
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<div class="min-w-[1000px]">
+<!-- Table Header -->
+<div class="flex items-center px-margin-desktop py-2 border-b border-outline-variant/30 text-[11px] font-bold text-on-surface-variant uppercase tracking-wider bg-surface-container-low/30">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4">Thread ID</div>
+<div class="flex-1 px-4">Subject &amp; Latest Message</div>
+<div class="w-32 px-4">Status</div>
+<div class="w-24 px-4 text-right">Confidence</div>
+<div class="w-24 px-4 text-right">Time</div>
+</div>
+<!-- Thread Rows -->
+<div class="divide-y divide-outline-variant/30">
+<!-- Row 1 (Selected) -->
+<div class="thread-row flex items-center px-margin-desktop h-14 bg-surface-container-high border-l-2 border-primary group cursor-pointer transition-colors">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4 font-mono-sm text-mono-sm text-primary thread-id">THR-9921</div>
+<div class="flex-1 px-4 min-w-0">
+<div class="font-body-md text-on-surface font-semibold truncate">Refunding double-charged subscription for order #8812</div>
+<div class="text-body-sm text-on-surface-variant truncate">I was charged twice for my pro plan upgrade last night...</div>
+</div>
+<div class="w-32 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-[11px] font-bold">AI: Sent</span>
+</div>
+<div class="w-24 px-4 text-right font-mono-sm text-on-surface">98%</div>
+<div class="w-24 px-4 text-right text-body-sm text-on-surface-variant">2m ago</div>
+</div>
+<!-- Row 2 -->
+<div class="thread-row flex items-center px-margin-desktop h-14 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4 font-mono-sm text-mono-sm text-on-surface-variant thread-id">THR-9920</div>
+<div class="flex-1 px-4 min-w-0">
+<div class="font-body-md text-on-surface truncate">API documentation error in the Python SDK section</div>
+<div class="text-body-sm text-on-surface-variant truncate">The example code snippet for the `/v1/deploy` endpoint seems to be...</div>
+</div>
+<div class="w-32 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold">Manual</span>
+</div>
+<div class="w-24 px-4 text-right font-mono-sm text-on-surface">--</div>
+<div class="w-24 px-4 text-right text-body-sm text-on-surface-variant">14m ago</div>
+</div>
+<!-- Row 3 (Pending Approval) -->
+<div class="thread-row flex items-center px-margin-desktop h-14 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4 font-mono-sm text-mono-sm text-on-surface-variant thread-id">THR-9919</div>
+<div class="flex-1 px-4 min-w-0">
+<div class="font-body-md text-on-surface font-semibold truncate">Enterprise plan negotiation for 500+ seats</div>
+<div class="text-body-sm text-on-surface-variant truncate">AI Draft: Hello, thank you for your interest in our enterprise tier...</div>
+</div>
+<div class="w-32 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-fixed text-[11px] font-bold">Pending</span>
+</div>
+<div class="w-24 px-4 text-right font-mono-sm text-on-surface">64%</div>
+<div class="w-24 px-4 text-right text-body-sm text-on-surface-variant">28m ago</div>
+</div>
+<!-- Row 4 -->
+<div class="thread-row flex items-center px-margin-desktop h-14 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4 font-mono-sm text-mono-sm text-on-surface-variant thread-id">THR-9918</div>
+<div class="flex-1 px-4 min-w-0">
+<div class="font-body-md text-on-surface truncate">Cannot reset password using the link in email</div>
+<div class="text-body-sm text-on-surface-variant truncate">I click the link and it just redirects me to the home page...</div>
+</div>
+<div class="w-32 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-[11px] font-bold">AI: Sent</span>
+</div>
+<div class="w-24 px-4 text-right font-mono-sm text-on-surface">92%</div>
+<div class="w-24 px-4 text-right text-body-sm text-on-surface-variant">1h ago</div>
+</div>
+<!-- Row 5 -->
+<div class="thread-row flex items-center px-margin-desktop h-14 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4 font-mono-sm text-mono-sm text-on-surface-variant thread-id">THR-9917</div>
+<div class="flex-1 px-4 min-w-0">
+<div class="font-body-md text-on-surface truncate">Custom integration request for HubSpot</div>
+<div class="text-body-sm text-on-surface-variant truncate">Do you support two-way sync with custom Hubspot objects?</div>
+</div>
+<div class="w-32 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-bold">Manual</span>
+</div>
+<div class="w-24 px-4 text-right font-mono-sm text-on-surface">--</div>
+<div class="w-24 px-4 text-right text-body-sm text-on-surface-variant">1h ago</div>
+</div>
+<!-- Row 6 -->
+<div class="thread-row flex items-center px-margin-desktop h-14 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4 font-mono-sm text-mono-sm text-on-surface-variant thread-id">THR-9916</div>
+<div class="flex-1 px-4 min-w-0">
+<div class="font-body-md text-on-surface truncate">Bug report: Dashboard charts not loading on Safari</div>
+<div class="text-body-sm text-on-surface-variant truncate">Since the last update, all my metrics charts are blank...</div>
+</div>
+<div class="w-32 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-[11px] font-bold">AI: Sent</span>
+</div>
+<div class="w-24 px-4 text-right font-mono-sm text-on-surface">99%</div>
+<div class="w-24 px-4 text-right text-body-sm text-on-surface-variant">2h ago</div>
+</div>
+<!-- Row 7 -->
+<div class="thread-row flex items-center px-margin-desktop h-14 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4 font-mono-sm text-mono-sm text-on-surface-variant thread-id">THR-9915</div>
+<div class="flex-1 px-4 min-w-0">
+<div class="font-body-md text-on-surface font-semibold truncate">Security questionnaire for audit compliance</div>
+<div class="text-body-sm text-on-surface-variant truncate">Attached is our annual security audit questionnaire. Please...</div>
+</div>
+<div class="w-32 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-fixed text-[11px] font-bold">Pending</span>
+</div>
+<div class="w-24 px-4 text-right font-mono-sm text-on-surface">41%</div>
+<div class="w-24 px-4 text-right text-body-sm text-on-surface-variant">3h ago</div>
+</div>
+<!-- Row 8 -->
+<div class="thread-row flex items-center px-margin-desktop h-14 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-10 flex justify-center"><input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-background" type="checkbox"/></div>
+<div class="w-24 px-4 font-mono-sm text-mono-sm text-on-surface-variant thread-id">THR-9914</div>
+<div class="flex-1 px-4 min-w-0">
+<div class="font-body-md text-on-surface truncate">Requesting clarification on data retention policy</div>
+<div class="text-body-sm text-on-surface-variant truncate">How long do you store chat transcripts for archived...</div>
+</div>
+<div class="w-32 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-[11px] font-bold">AI: Sent</span>
+</div>
+<div class="w-24 px-4 text-right font-mono-sm text-on-surface">95%</div>
+<div class="w-24 px-4 text-right text-body-sm text-on-surface-variant">4h ago</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Info -->
+<footer class="h-10 px-margin-desktop flex items-center justify-between bg-surface-container-low border-t border-outline-variant text-[11px] text-on-surface-variant font-medium">
+<div class="flex gap-4">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> Systems Operational</span>
+<span>8 threads selected</span>
+</div>
+<div class="flex gap-4">
+<span><kbd class="px-1 py-0.5 rounded bg-surface-container-highest text-[9px] font-mono mr-1">↑↓</kbd> Navigate</span>
+<span><kbd class="px-1 py-0.5 rounded bg-surface-container-highest text-[9px] font-mono mr-1">E</kbd> Archive</span>
+<span><kbd class="px-1 py-0.5 rounded bg-surface-container-highest text-[9px] font-mono mr-1">F</kbd> Filter</span>
+</div>
+</footer>
+</main>
+<!-- Floating Action Feedback (Subtle) -->
+<div class="fixed bottom-12 right-6 flex flex-col gap-2 z-50" id="toast-container"></div>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('.thread-row').forEach(row => {
+            row.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'INPUT') {
+                    // Visual feedback for click
+                    row.classList.add('scale-[0.99]');
+                    setTimeout(() => row.classList.remove('scale-[0.99]'), 100);
+                    
+                    // Logic to toggle 'selected' state (simulation)
+                    document.querySelectorAll('.thread-row').forEach(r => {
+                        r.classList.remove('bg-surface-container-high', 'border-l-2', 'border-primary');
+                        r.classList.add('hover:bg-surface-container-highest');
+                    });
+                    row.classList.add('bg-surface-container-high', 'border-l-2', 'border-primary');
+                    row.classList.remove('hover:bg-surface-container-highest');
+                }
+            });
+        });
+
+        // Command Palette Placeholder Interaction
+        window.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                const search = document.querySelector('input[type="text"]');
+                search.focus();
+                showToast("Command Palette Activated", "info");
+            }
+        });
+
+        function showToast(message, type) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-surface-container-high border border-outline-variant px-4 py-2 rounded-lg shadow-xl flex items-center gap-3 animate-slide-up transition-all duration-300 transform translate-y-0 opacity-100';
+            
+            const icon = type === 'info' ? 'terminal' : 'check_circle';
+            toast.innerHTML = `
+                <span class="material-symbols-outlined text-primary">${icon}</span>
+                <span class="text-sm font-medium text-on-surface">${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Custom style for animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes slide-up {
+                from { transform: translateY(20px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            .animate-slide-up { animation: slide-up 0.3s ease-out; }
+            .no-scrollbar::-webkit-scrollbar { display: none; }
+            .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body></html>

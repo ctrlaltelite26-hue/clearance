@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance | Empty States Reference</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+
+<!-- Using Geist-like font via sans-serif system stack or similar modern sans -->
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .empty-state-card {
+            background-color: #141A22;
+            border: 1px solid #243044;
+            transition: all 0.2s ease-in-out;
+        }
+        .empty-state-card:hover {
+            border-color: #3c4a46;
+            background-color: #1a2b3e;
+        }
+        .teal-glow {
+            text-shadow: 0 0 15px rgba(45, 212, 191, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                      "surface-container-high": "#1a2b3e",
+                      "on-surface": "#d3e4fd",
+                      "outline": "#859490",
+                      "inverse-surface": "#d3e4fd",
+                      "secondary": "#c1c7d2",
+                      "on-primary-fixed-variant": "#005047",
+                      "outline-variant": "#3c4a46",
+                      "on-surface-variant": "#bacac5",
+                      "on-primary": "#003731",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-highest": "#253649",
+                      "secondary-fixed-dim": "#c1c7d2",
+                      "inverse-on-surface": "#213245",
+                      "on-secondary": "#2b3139",
+                      "error": "#ffb4ab",
+                      "surface-container-lowest": "#000f20",
+                      "on-tertiary-fixed-variant": "#6b3b00",
+                      "on-tertiary-container": "#744000",
+                      "on-primary-fixed": "#00201c",
+                      "tertiary-container": "#ffac5a",
+                      "on-secondary-fixed-variant": "#414750",
+                      "background": "#031426",
+                      "on-tertiary-fixed": "#2d1600",
+                      "inverse-primary": "#006b5f",
+                      "error-container": "#93000a",
+                      "on-primary-container": "#00574d",
+                      "on-secondary-fixed": "#161c24",
+                      "primary-fixed-dim": "#3cddc7",
+                      "surface-container-low": "#0b1d2f",
+                      "surface-bright": "#2a3a4e",
+                      "on-tertiary": "#4b2800",
+                      "on-background": "#d3e4fd",
+                      "surface-container": "#0f2133",
+                      "surface-tint": "#3cddc7",
+                      "primary-fixed": "#62fae3",
+                      "tertiary": "#ffd1aa",
+                      "on-error": "#690005",
+                      "secondary-fixed": "#dde3ee",
+                      "primary": "#2DD4BF",
+                      "tertiary-fixed-dim": "#ffb875",
+                      "surface": "#031426",
+                      "surface-variant": "#253649",
+                      "tertiary-fixed": "#ffdcc0",
+                      "primary-container": "#2dd4bf",
+                      "surface-dim": "#031426",
+                      "secondary-container": "#464c55",
+                      "on-secondary-container": "#b6bcc7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "24px",
+                      "xs": "4px",
+                      "xl": "32px",
+                      "unit": "8px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "label-md": ["Geist", "sans-serif"],
+                      "body-sm": ["Geist", "sans-serif"],
+                      "body-md": ["Geist", "sans-serif"],
+                      "body-lg": ["Geist", "sans-serif"],
+                      "mono-sm": ["JetBrains Mono", "monospace"],
+                      "headline-md": ["Geist", "sans-serif"],
+                      "headline-lg": ["Geist", "sans-serif"]
+              },
+              "fontSize": {
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface selection:bg-primary/30 selection:text-primary">
+<!-- Sidebar Navigation -->
+<aside class="fixed h-full w-[240px] left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col py-lg px-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Clearance</h1>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-70">Support Autopilot</p>
+</div>
+<button class="flex items-center gap-sm bg-surface-container-highest text-primary font-bold px-md py-sm rounded mb-lg cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="font-label-md text-label-md">New Thread</span>
+</button>
+<nav class="flex-1 space-y-xs">
+<!-- Inbox is active by context of showing empty states for the platform -->
+<div class="flex items-center gap-md px-md py-sm bg-surface-container-highest text-primary font-bold rounded cursor-pointer transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]">inbox</span>
+<span class="font-body-md text-body-md">Inbox</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded cursor-pointer transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-body-md text-body-md">Approvals</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded cursor-pointer transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]">insights</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded cursor-pointer transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+<span class="font-body-md text-body-md">Autopilot</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded cursor-pointer transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</div>
+</nav>
+<div class="mt-auto space-y-xs pt-lg border-t border-outline-variant">
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded cursor-pointer transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span class="font-body-md text-body-md">Help</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high rounded cursor-pointer transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[240px] flex flex-col min-h-screen">
+<!-- Top Bar -->
+<header class="flex justify-between items-center h-14 px-lg bg-surface border-b border-outline-variant sticky top-0 z-40">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg py-1.5 pl-10 pr-4 text-label-md font-label-md focus:ring-1 focus:ring-primary focus:border-primary bg-opacity-50 outline-none" placeholder="Search threads, customers, or history..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg ml-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface cursor-pointer">history</span>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary-fixed px-md py-1.5 rounded font-label-md text-label-md font-bold transition-all active:scale-95">
+                    Go Live
+                </button>
+</div>
+</header>
+<!-- Canvas -->
+<section class="p-lg flex-1 overflow-y-auto">
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Reference Library</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">System-wide empty state definitions for the Clearance AI co-pilot.</p>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg h-full max-w-6xl">
+<!-- 1. No Threads -->
+<div class="empty-state-card flex flex-col items-center justify-center p-xl text-center rounded-lg min-h-[360px]">
+<div class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary text-[32px]">inbox_customize</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Inbox zero. You're all caught up.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mb-xl">The AI autopilot is monitoring for new incoming support threads.</p>
+<button class="flex items-center gap-xs text-primary hover:text-primary-fixed font-label-md text-label-md uppercase tracking-wider group">
+                        View Archive
+                        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+<!-- 2. No Approvals -->
+<div class="empty-state-card flex flex-col items-center justify-center p-xl text-center rounded-lg min-h-[360px] border-l-4 border-l-primary/30">
+<div class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary text-[32px]">fact_check</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Clearance for takeoff.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mb-xl">No threads currently require human intervention. Autopilot is handling the queue.</p>
+<button class="flex items-center gap-xs text-primary hover:text-primary-fixed font-label-md text-label-md uppercase tracking-wider group">
+                        System Status
+                        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+<!-- 3. No Search Results -->
+<div class="empty-state-card flex flex-col items-center justify-center p-xl text-center rounded-lg min-h-[360px]">
+<div class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-[32px]">search_off</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">No threads found.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mb-xl">We couldn't find any threads matching your current filters or search query.</p>
+<button class="flex items-center gap-xs text-primary hover:text-primary-fixed font-label-md text-label-md uppercase tracking-wider group">
+                        Clear Filters
+                        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">close</span>
+</button>
+</div>
+<!-- 4. Autopilot Paused -->
+<div class="empty-state-card flex flex-col items-center justify-center p-xl text-center rounded-lg min-h-[360px] relative overflow-hidden">
+<!-- Subtle decorative background pulse -->
+<div class="absolute inset-0 bg-primary/5 animate-pulse pointer-events-none"></div>
+<div class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-lg relative z-10">
+<span class="material-symbols-outlined text-error text-[32px]" style="font-variation-settings: 'FILL' 1;">pause_circle</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm relative z-10">Autopilot is offline.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mb-xl relative z-10">Automated responses are currently disabled for this inbox.</p>
+<button class="bg-primary hover:bg-primary-container text-on-primary-fixed px-xl py-sm rounded font-label-md text-label-md font-bold transition-all active:scale-95 shadow-lg shadow-primary/10 relative z-10">
+                        Resume Autopilot
+                    </button>
+</div>
+</div>
+<!-- Documentation Metadata (Bento element) -->
+<div class="mt-lg grid grid-cols-1 md:grid-cols-3 gap-lg max-w-6xl">
+<div class="bg-surface-container p-md rounded border border-outline-variant flex items-start gap-md">
+<span class="material-symbols-outlined text-primary mt-1">info</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold mb-1">DESIGN TOKEN</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Empty states should use 16px vertical spacing between icon, title, and subtext.</p>
+</div>
+</div>
+<div class="bg-surface-container p-md rounded border border-outline-variant flex items-start gap-md">
+<span class="material-symbols-outlined text-primary mt-1">style</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold mb-1">COLOR PALETTE</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Primary Surface: #141A22 | Border: #243044 | Accent: #2DD4BF (Teal).</p>
+</div>
+</div>
+<div class="bg-surface-container p-md rounded border border-outline-variant flex items-start gap-md">
+<span class="material-symbols-outlined text-primary mt-1">terminal</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-bold mb-1">INTERACTIONS</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">All primary buttons must include 0.95 scale active states for tactile feedback.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer / Version -->
+<footer class="mt-auto px-lg py-md border-t border-outline-variant flex justify-between items-center bg-surface-container-low">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant opacity-60">SYSTEM STATUS: OPERATIONAL</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant opacity-40">CLEARANCE v2.4.0-STABLE</span>
+</footer>
+</main>
+<script>
+        // Micro-interaction: Hover effects on cards
+        document.querySelectorAll('.empty-state-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.style.transform = 'scale(1.1)';
+                    icon.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.style.transform = 'scale(1)';
+                }
+            });
+        });
+    </script>
+</body></html>

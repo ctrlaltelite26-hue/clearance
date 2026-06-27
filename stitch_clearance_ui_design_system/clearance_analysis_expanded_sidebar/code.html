@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance AI | Analysis Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                        "on-tertiary": "#4b2800",
+                        "on-surface-variant": "#bacac5",
+                        "outline": "#859490",
+                        "inverse-surface": "#d3e4fd",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#3cddc7",
+                        "secondary": "#c1c7d2",
+                        "tertiary-fixed-dim": "#ffb875",
+                        "surface-dim": "#031426",
+                        "secondary-fixed-dim": "#c1c7d2",
+                        "secondary-fixed": "#dde3ee",
+                        "on-secondary-fixed-variant": "#414750",
+                        "surface-bright": "#2a3a4e",
+                        "inverse-primary": "#006b5f",
+                        "primary-fixed": "#62fae3",
+                        "tertiary": "#ffd1aa",
+                        "outline-variant": "#3c4a46",
+                        "on-primary-container": "#00574d",
+                        "surface-variant": "#253649",
+                        "secondary-container": "#464c55",
+                        "primary": "#2DD4BF",
+                        "on-tertiary-fixed-variant": "#6b3b00",
+                        "surface-container-low": "#0b1d2f",
+                        "surface-container": "#0f2133",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#00201c",
+                        "primary-container": "#2dd4bf",
+                        "on-surface": "#d3e4fd",
+                        "tertiary-container": "#ffac5a",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#161c24",
+                        "surface-container-highest": "#253649",
+                        "primary-fixed-dim": "#3cddc7",
+                        "on-background": "#d3e4fd",
+                        "surface": "#031426",
+                        "on-primary-fixed-variant": "#005047",
+                        "inverse-on-surface": "#213245",
+                        "tertiary-fixed": "#ffdcc0",
+                        "background": "#031426",
+                        "on-secondary": "#2b3139",
+                        "surface-container-high": "#1a2b3e",
+                        "surface-container-lowest": "#000f20",
+                        "on-secondary-container": "#b6bcc7",
+                        "on-tertiary-container": "#744000",
+                        "on-tertiary-fixed": "#2d1600",
+                        "on-primary": "#003731",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "unit": "8px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "24px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Geist", "sans-serif"],
+                        "mono-sm": ["JetBrains Mono", "monospace"],
+                        "headline-md": ["Geist", "sans-serif"],
+                        "body-lg": ["Geist", "sans-serif"],
+                        "body-sm": ["Geist", "sans-serif"],
+                        "body-md": ["Geist", "sans-serif"],
+                        "label-md": ["Geist", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 18px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #031426;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #243044;
+            border-radius: 10px;
+        }
+        .pulse-teal {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .4; }
+        }
+        .glow-teal {
+            box-shadow: 0 0 15px rgba(45, 212, 191, 0.15);
+        }
+    </style>
+</head>
+<body class="h-screen overflow-hidden flex flex-col font-body-md text-body-md">
+<!-- Top Bar -->
+<header class="flex justify-between items-center px-margin-desktop w-full z-40 bg-surface-dim h-[56px] border-b border-outline-variant">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-bold text-primary">Clearance AI</span>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border-outline-variant border rounded px-10 py-1 text-body-sm focus:ring-1 focus:ring-primary focus:outline-none transition-all" placeholder="Search threads..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">history</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden">
+<img alt="User" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApSD667VPNq-wNizWWq6xANtzD9zd1ZohrrRLC6srt7jRHIeCqb4AVfa83rjwp5L7Tt0UwcD_K9z5ro42lCzanMd9TLa6Y512TRgaGPVYaZqPHh6zYkJC6F-uL-c0cTVdKn1SY0cpPDZOkoSBhh4soerpD_viCCjhEIYYhKcNV8JCQKDKMhJdogWdPotlw7-i6Q_k-DkWKRh7QlD5tfwQUJb5A548smEzvq7nWrPiRqDgWfMSuiC75SICwbAC8D2XuKBTgHmFyeCsa"/>
+</div>
+</div>
+</header>
+<main class="flex-1 flex overflow-hidden">
+<!-- Column 1: Left SideNav -->
+<nav class="w-[240px] h-full flex flex-col py-lg bg-surface border-r border-outline-variant flex-shrink-0">
+<div class="px-md mb-lg">
+<button class="w-full bg-primary-container text-on-primary-container font-medium py-2 rounded-lg flex items-center justify-center gap-2 transition-colors hover:brightness-110">
+<span class="material-symbols-outlined">add</span>
+                    New Autopilot
+                </button>
+</div>
+<div class="flex-1 flex flex-col gap-1 px-sm">
+<a class="flex items-center gap-3 px-md py-2 text-primary bg-surface-container-high font-medium rounded transition-colors" href="#">
+<span class="material-symbols-outlined">inbox</span>
+<span>Inbox</span>
+</a>
+<a class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-colors" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span>Automations</span>
+</a>
+<a class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-colors" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span>Policies</span>
+</a>
+<a class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="mt-auto px-sm flex flex-col gap-1 border-t border-outline-variant pt-lg">
+<a class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Docs</span>
+</a>
+<a class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded transition-colors" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span>Support</span>
+</a>
+<div class="px-md mt-md flex items-center gap-3">
+<div class="h-6 w-6 rounded border border-outline-variant bg-surface-container flex items-center justify-center text-[10px] font-bold text-on-surface-variant">CLR</div>
+<div class="flex flex-col">
+<span class="text-label-md font-bold text-on-surface">Clearance</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-wider">AI Autopilot</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Column 2: Thread Context -->
+<section class="flex-1 flex flex-col bg-surface-container-lowest min-w-0">
+<div class="h-[56px] border-b border-outline-variant flex items-center px-lg justify-between flex-shrink-0">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">mail</span>
+<h2 class="font-headline-md text-headline-md">Ticket #1094: Access Denied to Billing</h2>
+</div>
+<div class="flex items-center gap-sm">
+<span class="px-2 py-0.5 rounded bg-error-container text-error text-[11px] font-bold uppercase tracking-widest">Urgent</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[11px] font-bold uppercase tracking-widest">Billing</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-lg flex flex-col gap-lg">
+<!-- User Message -->
+<div class="flex gap-md max-w-4xl">
+<div class="h-10 w-10 rounded bg-surface-container border border-outline-variant flex-shrink-0 flex items-center justify-center overflow-hidden">
+<img alt="Customer" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACdaVH5-wKRC45jfs6TMNpLMfHK9zSUKDgyI4JXgBPAr-WH1ZGD_QWoHyPnehX9Dge-v7d0iYC28tl4Q5CX4-ZQC4pszahNE_qT4pA0Lc6iocp3TtKCfdOcZLWeOmyQUT5WHuuX-bpsJIMmwiq8rIRZ2y7mYd3KHojNIe7Z_5T2Qc5nhjo81z0bfXJpyzxbgCTTzvPrjfgOCPW37deTyqil_UQW8VO0LGny_r9i2L-xMYImzcrznZCMtGI66To_AUTU_jNhy_v2-_c"/>
+</div>
+<div class="flex flex-col gap-unit">
+<div class="flex items-baseline gap-sm">
+<span class="font-bold text-on-surface">Sarah Connor</span>
+<span class="text-label-md text-on-surface-variant">sarah.c@techcorp.io • 14:02 PM</span>
+</div>
+<div class="p-md bg-surface-container border border-outline-variant rounded-xl leading-relaxed">
+                            Hello, I'm trying to access the Q3 billing reports for my department but the system keeps saying "Unauthorized Access." I am the Department Lead and I need these figures for the board meeting in an hour. Please fix this immediately.
+                        </div>
+</div>
+</div>
+<!-- AI Response Draft -->
+<div class="flex gap-md max-w-4xl self-end flex-row-reverse">
+<div class="h-10 w-10 rounded bg-primary-container border border-primary flex-shrink-0 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-primary">bolt</span>
+</div>
+<div class="flex flex-col gap-unit items-end">
+<div class="flex items-baseline gap-sm flex-row-reverse">
+<span class="font-bold text-primary">Clearance AI</span>
+<span class="text-label-md text-on-surface-variant">Autopilot Draft • 14:03 PM</span>
+</div>
+<div class="p-md bg-surface-container-high border border-primary/30 rounded-xl leading-relaxed text-right glow-teal">
+                            Hi Sarah, I've identified the issue. Your account permissions for the 'Finance-Q3' scope were not automatically updated during the recent promotion. I'm currently requesting a manual override to grant you 'Billing Admin' access for the next 24 hours.
+                        </div>
+<div class="flex gap-sm mt-xs">
+<button class="px-lg py-1.5 border border-primary text-primary rounded-lg text-body-sm font-medium hover:bg-primary/10 transition-all">Approve &amp; Send</button>
+<button class="px-lg py-1.5 border border-outline-variant text-on-surface-variant rounded-lg text-body-sm hover:bg-surface-container transition-all">Edit Draft</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Editor / Action Bar -->
+<div class="p-lg bg-surface-container-low border-t border-outline-variant">
+<div class="bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col gap-md">
+<textarea class="bg-transparent border-none focus:ring-0 text-body-md w-full h-24 resize-none placeholder:text-on-surface-variant" placeholder="Reply to Sarah..."></textarea>
+<div class="flex justify-between items-center border-t border-outline-variant pt-md">
+<div class="flex items-center gap-md text-on-surface-variant">
+<button class="hover:text-primary"><span class="material-symbols-outlined">attach_file</span></button>
+<button class="hover:text-primary"><span class="material-symbols-outlined">format_bold</span></button>
+<button class="hover:text-primary"><span class="material-symbols-outlined">alternate_email</span></button>
+</div>
+<button class="bg-primary text-on-primary px-lg py-2 rounded font-bold text-body-sm flex items-center gap-2">
+                            Send Message
+                            <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Column 3: Analysis Sidebar -->
+<aside class="w-[360px] bg-surface border-l border-outline-variant flex flex-col flex-shrink-0">
+<header class="h-[56px] px-lg border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="text-label-md font-bold text-on-surface uppercase tracking-widest">AI Analysis</span>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 bg-surface-container-high rounded border border-outline-variant">
+<div class="h-2 w-2 rounded-full bg-primary pulse-teal"></div>
+<span class="text-[10px] font-mono font-medium text-primary uppercase">Refining...</span>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-lg flex flex-col gap-lg">
+<!-- Classification Grid -->
+<div class="grid grid-cols-2 gap-sm">
+<div class="p-md bg-surface-container border border-outline-variant rounded-lg">
+<span class="text-[10px] uppercase text-on-surface-variant block mb-1">Sentiment</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-md">rowing</span>
+<span class="font-bold text-body-sm">Frustrated</span>
+</div>
+</div>
+<div class="p-md bg-surface-container border border-outline-variant rounded-lg">
+<span class="text-[10px] uppercase text-on-surface-variant block mb-1">Priority</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-md" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+<span class="font-bold text-body-sm">Urgent</span>
+</div>
+</div>
+</div>
+<!-- Intent Card -->
+<div class="p-md bg-surface-container border border-outline-variant rounded-lg">
+<span class="text-[10px] uppercase text-on-surface-variant block mb-2">Primary Intent</span>
+<div class="flex items-center gap-3">
+<div class="p-1.5 bg-primary/10 rounded">
+<span class="material-symbols-outlined text-primary text-md">receipt_long</span>
+</div>
+<span class="font-bold text-body-md">Billing Request</span>
+</div>
+</div>
+<!-- Policy Card -->
+<div class="p-md bg-surface-container border-l-4 border-l-primary border border-outline-variant rounded-lg">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] uppercase text-on-surface-variant">Active Policy</span>
+<span class="text-mono-sm text-[10px] text-on-surface-variant">v2.4</span>
+</div>
+<div class="font-bold text-body-sm text-on-surface mb-1">Billing Access Protocol</div>
+<p class="text-body-sm text-on-surface-variant leading-tight italic">"Escalate access requests for Dept Leads if proof of urgency is detected."</p>
+</div>
+<!-- Tool Call Timeline -->
+<div class="flex flex-col">
+<span class="text-label-md font-bold text-on-surface mb-lg">Tool Execution Chain</span>
+<div class="relative pl-6 flex flex-col gap-lg">
+<!-- Vertical Line -->
+<div class="absolute left-[7px] top-2 bottom-2 w-[1px] bg-outline-variant"></div>
+<!-- Step 1 -->
+<div class="relative">
+<div class="absolute -left-[23px] top-1.5 h-4 w-4 rounded-full bg-surface border border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-primary" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-mono-sm font-bold text-primary">user.lookup</span>
+<span class="text-[11px] text-on-surface-variant">Target: sarah.c@techcorp.io</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<div class="absolute -left-[23px] top-1.5 h-4 w-4 rounded-full bg-surface border border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-primary" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-mono-sm font-bold text-primary">ticket.history</span>
+<span class="text-[11px] text-on-surface-variant">Found 3 previous billing queries.</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<div class="absolute -left-[23px] top-1.5 h-4 w-4 rounded-full bg-surface-container-high border border-primary/40 flex items-center justify-center">
+<div class="h-1.5 w-1.5 rounded-full bg-primary pulse-teal"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-mono-sm font-bold text-primary">access.propose</span>
+<span class="text-[11px] text-on-surface-variant">Pending Admin Approval...</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats -->
+<footer class="p-lg border-t border-outline-variant bg-surface-container-low flex flex-wrap gap-x-lg gap-y-2">
+<div class="flex items-center gap-2">
+<span class="text-mono-sm text-[10px] text-on-surface-variant">model:</span>
+<span class="text-mono-sm text-[10px] font-bold text-on-surface">qwen-pro</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-mono-sm text-[10px] text-on-surface-variant">latency:</span>
+<span class="text-mono-sm text-[10px] font-bold text-on-surface">1.2s</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-mono-sm text-[10px] text-on-surface-variant">tokens:</span>
+<span class="text-mono-sm text-[10px] font-bold text-on-surface">412</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-mono-sm text-[10px] text-on-surface-variant">status:</span>
+<span class="text-mono-sm text-[10px] font-bold text-primary">live</span>
+</div>
+</footer>
+</aside>
+</main>
+<script>
+        // Simple interactions for hover states or micro-animations
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>

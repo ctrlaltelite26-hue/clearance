@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance | Configure Inbox</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/static/Geist-Medium.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/static/Geist-Regular.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/static/Geist-Bold.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                    "on-secondary": "#2b3139",
+                    "secondary-fixed-dim": "#c1c7d2",
+                    "on-background": "#d3e4fd",
+                    "tertiary-fixed-dim": "#ffb875",
+                    "primary-fixed": "#62fae3",
+                    "background": "#031426",
+                    "primary-fixed-dim": "#3cddc7",
+                    "outline-variant": "#3c4a46",
+                    "on-tertiary-fixed": "#2d1600",
+                    "on-primary-fixed-variant": "#005047",
+                    "on-tertiary-fixed-variant": "#6b3b00",
+                    "surface-dim": "#031426",
+                    "on-secondary-fixed": "#161c24",
+                    "secondary": "#c1c7d2",
+                    "primary-container": "#2dd4bf",
+                    "inverse-on-surface": "#213245",
+                    "surface-container-high": "#1a2b3e",
+                    "outline": "#859490",
+                    "on-surface-variant": "#bacac5",
+                    "surface": "#031426",
+                    "surface-container-highest": "#253649",
+                    "surface-container": "#0f2133",
+                    "surface-bright": "#2a3a4e",
+                    "primary": "#2DD4BF",
+                    "on-primary-container": "#00574d",
+                    "surface-variant": "#253649",
+                    "inverse-primary": "#006b5f",
+                    "surface-tint": "#3cddc7",
+                    "on-tertiary": "#4b2800",
+                    "tertiary-fixed": "#ffdcc0",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#0b1d2f",
+                    "secondary-container": "#464c55",
+                    "on-error": "#690005",
+                    "tertiary": "#ffd1aa",
+                    "surface-container-lowest": "#000f20",
+                    "inverse-surface": "#d3e4fd",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#414750",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#ffac5a",
+                    "on-primary-fixed": "#00201c",
+                    "on-primary": "#003731",
+                    "on-surface": "#d3e4fd",
+                    "on-secondary-container": "#b6bcc7",
+                    "secondary-fixed": "#dde3ee",
+                    "on-tertiary-container": "#744000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "md": "16px",
+                    "margin-desktop": "24px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "label-md": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "mono-sm": ["JetBrains Mono"],
+                    "headline-md": ["Geist"],
+                    "body-md": ["Geist"],
+                    "body-lg": ["Geist"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                    "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                    "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                    "mono-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                    "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                    "body-lg": ["15px", { "lineHeight": "24px", "fontWeight": "400" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .card-surface {
+            background-color: #141a22;
+            border: 1px solid #243044;
+        }
+        .input-base {
+            background-color: #0B0F14;
+            border: 1px solid #243044;
+            transition: all 0.2s ease;
+        }
+        .input-base:focus {
+            border-color: #2dd4bf;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 18px;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2dd4bf;
+        }
+        .toggle-checkbox:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden">
+<!-- Top Navigation Bar (Shared Component Strategy) -->
+<header class="flex justify-between items-center px-margin-desktop h-14 w-full z-50 border-b border-outline-variant bg-surface">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary">Clearance</span>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Docs</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Status</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<button class="px-4 py-1.5 rounded bg-primary-container text-on-primary-container font-bold hover:opacity-90 transition-opacity text-label-md font-label-md">
+                Save Progress
+            </button>
+</div>
+</header>
+<main class="flex-grow flex flex-col md:flex-row w-full max-w-[1440px] mx-auto">
+<!-- Sidebar Navigation (Shared Component Strategy) -->
+<aside class="fixed left-0 top-14 h-[calc(100vh-56px)] w-[240px] flex flex-col border-r border-outline-variant bg-surface-container py-md hidden lg:flex">
+<div class="px-md mb-xl">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">settings_input_component</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-primary leading-tight">Onboarding</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Step 2: Inbox Setup</p>
+</div>
+</div>
+<!-- Mini Progress Bar -->
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 50%;"></div>
+</div>
+</div>
+<nav class="flex-grow px-sm space-y-1">
+<div class="flex items-center gap-3 px-md py-2 bg-[#141A22] text-[#2DD4BF] border-l-2 border-[#2DD4BF] transition-all duration-150">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-md text-label-md">Inbox Setup</span>
+</div>
+<div class="flex items-center gap-3 px-md py-2 text-on-surface-variant opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md text-label-md">Knowledge Base</span>
+</div>
+
+<div class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-md text-label-md">Review</span>
+</div>
+</nav>
+<div class="mt-auto px-sm border-t border-outline-variant pt-md">
+<div class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-md text-label-md">Legal</span>
+</div>
+<div class="flex items-center gap-3 px-md py-2 text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-label-md text-label-md">Privacy</span>
+</div>
+<button class="w-full mt-4 py-2 text-primary font-label-md text-label-md hover:underline decoration-primary/30">Skip for now</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-grow flex items-center justify-center px-margin-mobile md:px-margin-desktop lg:pl-[240px] py-xl">
+<div class="w-full max-w-[480px]">
+<!-- Progress Indicator -->
+<div class="flex items-center justify-between mb-8">
+<div class="flex gap-2">
+<div class="h-1.5 w-12 rounded-full bg-primary/40"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary shadow-[0_0_8px_rgba(45,212,191,0.4)]"></div>
+<div class="h-1.5 w-12 rounded-full bg-surface-container-highest"></div>
+<div class="h-1.5 w-12 rounded-full bg-surface-container-highest"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Step 2 of 4</span>
+</div>
+<!-- Onboarding Card -->
+<div class="card-surface p-xl rounded-lg shadow-none relative overflow-hidden">
+<!-- Subtle Glow Accent -->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-primary/30"></div>
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Configure Inbox</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Create a real AgentMail inbox address. People can email this address and Clearance will triage automatically.</p>
+</div>
+<form class="space-y-6">
+<!-- Field 1: Inbox Name -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface block uppercase tracking-wider opacity-70" for="inbox-name">Inbox Display Name</label>
+<input class="w-full h-11 px-md rounded input-base text-on-surface font-body-md text-body-md placeholder:text-outline/50" id="inbox-name" placeholder="e.g. Customer Support" type="text"/>
+</div>
+<!-- Field 2: Username Slug -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface block uppercase tracking-wider opacity-70" for="username-slug">Username Slug</label>
+<div class="relative">
+<input class="w-full h-11 pl-md pr-[160px] rounded input-base text-on-surface font-body-md text-body-md placeholder:text-outline/50" id="username-slug" oninput="document.getElementById('preview-slug').innerText = this.value || 'support'" placeholder="support" type="text"/>
+</div>
+<div class="mt-2 py-2 px-md bg-surface-container-lowest border border-outline-variant/30 rounded flex items-center gap-2">
+<span class="material-symbols-outlined text-primary/60 scale-75">link</span>
+<code class="font-mono-sm text-mono-sm text-primary/80">
+<span id="preview-slug">support</span>@acme.clearance.app
+                                </code>
+</div>
+</div>
+<!-- Field 3: Autopilot Toggle -->
+<div class="flex items-center justify-between py-2 border-y border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider opacity-70">Autopilot Toggle</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Enable autonomous response generation</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only toggle-checkbox" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full toggle-label transition-colors duration-200">
+<div class="absolute left-[2px] top-[2px] bg-on-secondary w-4 h-4 rounded-full transition-transform duration-200 toggle-dot"></div>
+</div>
+</label>
+</div>
+<!-- Field 4: Mode Dropdown -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface block uppercase tracking-wider opacity-70" for="handling-mode">Handling Mode</label>
+<div class="relative">
+<select class="w-full h-11 px-md pr-10 rounded input-base text-on-surface font-body-md text-body-md appearance-none" id="handling-mode">
+<option value="draft">Draft only</option>
+<option selected="" value="auto">Auto-label + draft</option>
+<option value="full">Full with approvals</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-4 flex flex-col gap-4">
+<button class="w-full h-12 bg-primary-container text-on-primary-container font-bold text-headline-md rounded hover:opacity-90 transition-all flex items-center justify-center gap-2" type="submit">
+<span>Create inbox</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full h-10 border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md rounded" type="button">
+                                Skip configuration
+                            </button>
+</div>
+</form>
+</div>
+<p class="mt-8 text-center font-body-sm text-body-sm text-on-surface-variant">
+                    Need help? <a class="text-primary hover:underline transition-all" href="#">Visit the Configuration Guide</a>
+</p>
+</div>
+</section>
+</main>
+<!-- Success Toast (Hidden initially, logic for micro-interaction) -->
+<div class="fixed bottom-margin-desktop right-margin-desktop bg-surface-container-high border border-primary/50 p-4 rounded-lg shadow-xl translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 z-[60]" id="success-toast">
+<div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Configuration Saved</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Ready for AI Training step.</p>
+</div>
+</div>
+<script>
+        // Micro-interaction for the "Create inbox" button
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const toast = document.getElementById('success-toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        });
+
+        // Hover animation for the primary button
+        const btn = document.querySelector('button[type="submit"]');
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            btn.style.boxShadow = `0 4px 12px rgba(45, 212, 191, 0.3)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.boxShadow = 'none';
+        });
+    </script>
+</body></html>

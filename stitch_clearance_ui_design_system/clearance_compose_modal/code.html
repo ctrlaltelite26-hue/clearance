@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance | AI Autopilot Compose</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/geist');
+
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #0B0F14;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 18px;
+        }
+
+        /* Custom scrollbar for high-density UI */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3c4a46;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2DD4BF;
+        }
+
+        .input-underlined {
+            border: none;
+            border-bottom: 1px solid #243044;
+            background: transparent;
+            width: 100%;
+            padding: 8px 0;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+        .input-underlined:focus {
+            border-bottom-color: #2dd4bf;
+            box-shadow: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                        "on-tertiary-container": "#744000",
+                        "background": "#031426",
+                        "surface-variant": "#253649",
+                        "on-secondary-container": "#b6bcc7",
+                        "surface": "#031426",
+                        "on-secondary-fixed": "#161c24",
+                        "primary-container": "#2dd4bf",
+                        "secondary-fixed": "#dde3ee",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffdcc0",
+                        "on-secondary": "#2b3139",
+                        "on-primary-fixed": "#00201c",
+                        "secondary-container": "#464c55",
+                        "primary": "#2DD4BF",
+                        "on-primary": "#003731",
+                        "inverse-primary": "#006b5f",
+                        "inverse-surface": "#d3e4fd",
+                        "secondary-fixed-dim": "#c1c7d2",
+                        "surface-container-lowest": "#000f20",
+                        "surface-container-highest": "#253649",
+                        "outline-variant": "#3c4a46",
+                        "surface-tint": "#3cddc7",
+                        "tertiary-container": "#ffac5a",
+                        "on-surface-variant": "#bacac5",
+                        "on-secondary-fixed-variant": "#414750",
+                        "surface-dim": "#031426",
+                        "primary-fixed": "#62fae3",
+                        "inverse-on-surface": "#213245",
+                        "on-tertiary": "#4b2800",
+                        "on-tertiary-fixed": "#2d1600",
+                        "secondary": "#c1c7d2",
+                        "on-tertiary-fixed-variant": "#6b3b00",
+                        "on-surface": "#d3e4fd",
+                        "tertiary-fixed-dim": "#ffb875",
+                        "outline": "#859490",
+                        "tertiary": "#ffd1aa",
+                        "surface-bright": "#2a3a4e",
+                        "on-primary-fixed-variant": "#005047",
+                        "surface-container-high": "#1a2b3e",
+                        "primary-fixed-dim": "#3cddc7",
+                        "on-background": "#d3e4fd",
+                        "on-primary-container": "#00574d",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#0f2133",
+                        "on-error": "#690005",
+                        "surface-container-low": "#0b1d2f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "margin-desktop": "24px",
+                        "unit": "8px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "mono-sm": ["JetBrains Mono"],
+                        "body-md": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "headline-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- BACKGROUND VIEW (INBOX REPLICA) -->
+<div class="fixed inset-0 z-0 flex overflow-hidden">
+<!-- Predicted SideNavBar -->
+<aside class="w-[240px] h-screen border-r border-outline-variant bg-surface-container-low flex flex-col py-4">
+<div class="px-6 mb-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">Clearance</span>
+<p class="text-[10px] uppercase tracking-widest text-outline">AI Autopilot</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<div class="flex items-center px-3 py-2 rounded bg-surface-container-highest text-primary font-medium cursor-pointer transition-all duration-150">
+<span class="material-symbols-outlined mr-3">inbox</span>
+<span class="font-body-md text-body-md">Inbox</span>
+</div>
+<div class="flex items-center px-3 py-2 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined mr-3">person_check</span>
+<span class="font-body-md text-body-md">Assigned</span>
+</div>
+<div class="flex items-center px-3 py-2 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined mr-3">drafts</span>
+<span class="font-body-md text-body-md">Drafts</span>
+</div>
+<div class="flex items-center px-3 py-2 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="material-symbols-outlined mr-3">task_alt</span>
+<span class="font-body-md text-body-md">Completed</span>
+</div>
+</nav>
+<div class="px-3 pt-4 mt-4 border-t border-outline-variant space-y-1">
+<div class="flex items-center px-3 py-2 rounded text-on-surface-variant hover:bg-surface-container-high cursor-pointer">
+<span class="material-symbols-outlined mr-3 text-sm">help</span>
+<span class="font-body-sm text-body-sm">Help</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area (Inbox) -->
+<main class="flex-1 flex flex-col bg-surface overflow-hidden">
+<!-- Predicted TopAppBar -->
+<header class="w-full h-14 border-b border-outline-variant flex justify-between items-center px-margin-desktop bg-surface-dim">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold text-primary">Inbox</span>
+<div class="bg-surface-container-highest px-3 py-1 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">search</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Search threads...</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">history</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container"></div>
+</div>
+</header>
+<!-- Thread List -->
+<section class="flex-1 overflow-y-auto px-margin-desktop py-4">
+<div class="space-y-0">
+<!-- Sample Row 1 -->
+<div class="group h-[56px] border-b border-[#243044] flex items-center px-4 hover:bg-[#1C2530] relative transition-colors cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="w-8 h-8 rounded bg-surface-container-highest mr-4"></div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md font-semibold">Acme Corp Support</span>
+<span class="font-label-md text-label-md text-on-surface-variant">10:24 AM</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate w-[400px]">System integration request for Q3 rollout...</span>
+</div>
+</div>
+<!-- Sample Row 2 -->
+<div class="group h-[56px] border-b border-[#243044] flex items-center px-4 hover:bg-[#1C2530] transition-colors cursor-pointer">
+<div class="w-8 h-8 rounded bg-surface-container-highest mr-4"></div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md font-medium text-on-surface-variant">Global Tech</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Yesterday</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate w-[400px]">Update on the security patches deployed last night...</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- MODAL BACKDROP -->
+<div class="fixed inset-0 z-50 bg-[#000f20]/80 backdrop-blur-[2px] flex items-center justify-center p-4" id="modal-backdrop">
+<!-- COMPOSE MODAL CONTAINER -->
+<div class="w-full max-w-[800px] h-[600px] bg-[#141A22] border border-[#243044] rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
+<!-- MODAL HEADER -->
+<div class="h-12 px-4 flex items-center justify-between border-b border-[#243044]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">edit_square</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">New Message</span>
+</div>
+<button class="p-1 hover:bg-surface-container-highest rounded transition-colors text-on-surface-variant" onclick="document.getElementById('modal-backdrop').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- RECIPIENT & SUBJECT FIELDS -->
+<div class="px-6 py-2 space-y-0">
+<div class="flex items-center gap-4 group">
+<span class="w-12 font-label-md text-label-md text-on-surface-variant">To</span>
+<input class="input-underlined font-body-sm text-body-sm text-on-surface" placeholder="Recipients" type="text"/>
+<button class="text-xs text-primary hover:underline font-label-md">Cc/Bcc</button>
+</div>
+<div class="flex items-center gap-4 group">
+<span class="w-12 font-label-md text-label-md text-on-surface-variant">Subject</span>
+<input class="input-underlined font-body-md text-body-md font-medium text-on-surface" placeholder="Enter subject" type="text"/>
+</div>
+</div>
+<!-- AI BANNER (TOP OF EDITOR) -->
+<div class="px-6 py-2">
+<div class="bg-primary/5 border-l-2 border-primary py-2 px-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<p class="font-label-md text-label-md text-primary/90">Autopilot may review this message before sending to ensure compliance and precision.</p>
+</div>
+</div>
+<!-- RICH TEXT EDITOR -->
+<div class="flex-1 flex flex-col px-6">
+<!-- Formatting Toolbar -->
+<div class="flex items-center gap-1 py-3 border-b border-[#243044]/50">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-highest rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">format_bold</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-highest rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">format_italic</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-highest rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">link</span>
+</button>
+<div class="w-px h-4 bg-[#243044] mx-1"></div>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-highest rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">format_list_bulleted</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-highest rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">format_list_numbered</span>
+</button>
+<div class="flex-1"></div>
+<button class="flex items-center gap-1 px-3 py-1 text-primary hover:bg-primary/10 rounded transition-all">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span class="font-label-md text-label-md">Rewrite with AI</span>
+</button>
+</div>
+<!-- Text Area -->
+<textarea class="flex-1 w-full bg-transparent border-none outline-none resize-none py-4 font-body-md text-body-md text-on-surface placeholder-on-surface-variant/40" placeholder="Write your message..."></textarea>
+</div>
+<!-- MODAL FOOTER ACTION BAR -->
+<div class="px-6 h-16 border-t border-[#243044] flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-highest rounded text-on-surface-variant">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button class="p-2 hover:bg-surface-container-highest rounded text-on-surface-variant">
+<span class="material-symbols-outlined">image</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 font-label-md text-label-md text-on-surface-variant border border-[#243044] rounded-lg hover:bg-surface-container-high active:scale-[0.98] transition-all duration-150">
+                        Save Draft
+                    </button>
+<button class="px-6 py-2 bg-primary text-background font-label-md text-label-md font-bold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all duration-150 flex items-center gap-2">
+<span>Send</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const backdrop = document.getElementById('modal-backdrop');
+                if (backdrop) backdrop.classList.add('hidden');
+            }
+        });
+
+        // Simple tab focus logic for demo
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.closest('.group')?.classList.add('border-primary');
+            });
+            input.addEventListener('blur', () => {
+                input.closest('.group')?.classList.remove('border-primary');
+            });
+        });
+    </script>
+</body></html>

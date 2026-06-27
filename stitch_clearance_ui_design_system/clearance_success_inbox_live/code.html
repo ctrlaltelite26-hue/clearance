@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+
+<title>Inbox Live — Success | Clearance</title>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#ffac5a",
+                        "on-surface": "#d3e4fd",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#253649",
+                        "on-primary-fixed": "#00201c",
+                        "inverse-surface": "#d3e4fd",
+                        "surface-container": "#0f2133",
+                        "primary-fixed-dim": "#3cddc7",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#000f20",
+                        "on-secondary-fixed-variant": "#414750",
+                        "primary-fixed": "#62fae3",
+                        "on-secondary": "#2b3139",
+                        "secondary-fixed": "#dde3ee",
+                        "on-error": "#690005",
+                        "surface": "#031426",
+                        "surface-dim": "#031426",
+                        "secondary-container": "#464c55",
+                        "on-secondary-container": "#b6bcc7",
+                        "on-primary-fixed-variant": "#005047",
+                        "background": "#031426",
+                        "primary": "#2DD4BF",
+                        "on-surface-variant": "#bacac5",
+                        "surface-variant": "#253649",
+                        "surface-bright": "#2a3a4e",
+                        "outline": "#859490",
+                        "inverse-primary": "#006b5f",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#3c4a46",
+                        "on-background": "#d3e4fd",
+                        "tertiary-fixed-dim": "#ffb875",
+                        "tertiary": "#ffd1aa",
+                        "surface-container-low": "#0b1d2f",
+                        "on-tertiary": "#4b2800",
+                        "on-tertiary-fixed-variant": "#6b3b00",
+                        "primary-container": "#2dd4bf",
+                        "on-primary": "#003731",
+                        "surface-tint": "#3cddc7",
+                        "tertiary-fixed": "#ffdcc0",
+                        "on-primary-container": "#00574d",
+                        "on-tertiary-fixed": "#2d1600",
+                        "on-secondary-fixed": "#161c24",
+                        "inverse-on-surface": "#213245",
+                        "on-tertiary-container": "#744000",
+                        "surface-container-high": "#1a2b3e",
+                        "secondary": "#c1c7d2",
+                        "secondary-fixed-dim": "#c1c7d2",
+                        "brand-bg": "#0B0F14",
+                        "brand-surface": "#141A22",
+                        "brand-border": "#243044",
+                        "success-green": "#22C55E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "24px",
+                        "unit": "8px",
+                        "md": "16px",
+                        "gutter": "16px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Geist"],
+                        "mono-sm": ["JetBrains Mono"],
+                        "body-sm": ["Geist"],
+                        "body-md": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "headline-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-surface {
+            background-color: #141A22;
+            border: 1px solid #243044;
+        }
+        .copy-chip:hover .copy-icon {
+            color: #2DD4BF;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- Top Bar Anchor -->
+<header class="flex justify-between items-center px-margin-desktop h-14 w-full z-50 fixed top-0 border-b border-outline-variant bg-brand-bg">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary">Clearance</span>
+<div class="h-4 w-[1px] bg-outline-variant hidden md:block"></div>
+<span class="font-body-md text-body-md text-on-surface-variant hidden md:block">Inbox Live — Success</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="help">help</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="settings">settings</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a tech-savvy support manager with a minimalist background. The lighting is soft and neutral, consistent with a high-end dark SaaS environment. The image is crisp, with deep blacks and subtle teal highlights reflecting the Clearance brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCctCxnxIZ5PVkiNx1wT0TOwu86xCDSqzStS3liGhr9OunyGR8kZvXiNNefA-eM6PyMnXPgnc-FIW0d0vvj12IF0S_gUTZYRRWoyRSwETkv8cy8SrYhDMnzK-sqKbp3GlaYalqHsFvFFRYmcP8dMEavgq7qs0gF6vfTOspvuu--AbP2bspsnmAYx-HzaNahzhzeOfYymuOG9bXPKL7zV2Z_z_JK1TxysvphHcIfKFxfKQeyOG3fFXh4_Xus2n9SuQS5B685qFufr0E7"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation Sidebar Anchor -->
+<aside class="fixed left-0 top-14 h-[calc(100vh-3.5rem)] w-[240px] border-r border-outline-variant bg-brand-bg flex flex-col py-md hidden md:flex">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-success-green animate-pulse"></div>
+<span class="font-label-md text-label-md text-on-surface">Setup complete — inbox & knowledge ready</span>
+</div>
+</div>
+<nav class="flex-grow">
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-brand-success" style="font-variation-settings: 'FILL' 1;" data-icon="check_circle">check_circle</span>
+<span class="font-label-md text-label-md">Inbox Setup</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-brand-success" style="font-variation-settings: 'FILL' 1;" data-icon="check_circle">check_circle</span>
+<span class="font-label-md text-label-md">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm bg-surface-container-highest text-primary border-l-2 border-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="fact_check" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="font-label-md text-label-md">Review</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-md border-t border-outline-variant">
+<a class="flex items-center gap-sm py-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="gavel">gavel</span>
+<span class="font-label-md text-label-md">Legal</span>
+</a>
+<a class="flex items-center gap-sm py-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock">lock</span>
+<span class="font-label-md text-label-md">Privacy</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow md:ml-[240px] pt-14 flex items-center justify-center p-gutter">
+<div class="max-w-2xl w-full flex flex-col items-center text-center">
+<!-- Success Icon Section -->
+<div class="mb-lg relative">
+<div class="absolute inset-0 bg-success-green/20 blur-3xl rounded-full scale-150"></div>
+<span class="material-symbols-outlined text-[80px] text-success-green relative z-10" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Heading & Subheading -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Your inbox is live.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-md">
+                Your autopilot is live on <span class="text-on-surface font-medium">support@acme.clearance.app</span> with <span class="text-on-surface font-medium">2 knowledge sources</span> indexed.
+            </p>
+<!-- Address Chip -->
+<div class="glass-surface rounded-xl px-lg py-md mb-xl flex items-center gap-md group cursor-pointer hover:border-primary transition-all active:scale-95 copy-chip" onclick="copyToClipboard('support@acme.clearance.app')">
+<span class="font-mono-sm text-mono-sm text-primary tracking-wide">support@acme.clearance.app</span>
+<div class="w-[1px] h-4 bg-brand-border"></div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-colors copy-icon" data-icon="content_copy">content_copy</span>
+</div>
+<!-- Quick Actions Grid -->
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-md mb-xl">
+<button class="md:col-span-2 bg-primary-container text-on-primary-container font-headline-md py-md rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-sm group">
+<span>Open Inbox</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="border border-brand-border text-on-surface-variant font-label-md py-md rounded-lg hover:bg-brand-surface hover:text-on-surface transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="person_add">person_add</span>
+<span>Invite Teammate</span>
+</button>
+<button class="border border-brand-border text-on-surface-variant font-label-md py-md rounded-lg hover:bg-brand-surface hover:text-on-surface transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="library_books">library_books</span>
+<span>Add more knowledge</span>
+</button>
+</div>
+<!-- Pro Tip Banner -->
+<div class="glass-surface border-l-4 border-l-primary rounded-r-lg p-lg text-left relative overflow-hidden">
+<div class="flex gap-md relative z-10">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-on-surface font-bold">Pro tip:</span> Send a test email to this address to see how Autopilot analyzes intent and drafts a response in real-time.
+                    </p>
+</div>
+<!-- Background decoration -->
+<div class="absolute right-0 top-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-xl"></div>
+</div>
+</div>
+</main>
+<script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = document.querySelector('.copy-icon');
+                const originalIcon = icon.innerText;
+                icon.innerText = 'check';
+                icon.classList.add('text-success-green');
+                setTimeout(() => {
+                    icon.innerText = originalIcon;
+                    icon.classList.remove('text-success-green');
+                }, 2000);
+            });
+        }
+    </script>
+</body></html>

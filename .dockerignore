@@ -1,0 +1,25 @@
+# Dependencies & build outputs (reinstalled/regenerated inside the image)
+**/node_modules
+**/dist
+**/.next
+**/.turbo
+**/.cache
+
+# Local env & secrets — provide these as runtime env vars on the host instead
+.env
+.env.*
+
+# VCS, logs, editor
+.git
+.gitignore
+**/*.log
+.vscode
+.idea
+
+# Hackathon assets not needed at runtime
+ui-screenshots
+fixtures
+docs
+**/*.md
+scripts/screenshot-uis.mjs
+scripts/fix-stitch-html.mjs

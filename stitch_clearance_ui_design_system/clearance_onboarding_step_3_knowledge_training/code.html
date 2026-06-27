@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance | Knowledge Base</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                    "on-surface": "#E8EDF4",
+                    "on-surface-variant": "#8B9CB3",
+                    "primary": "#2DD4BF",
+                    "primary-container": "#2DD4BF",
+                    "on-primary-container": "#0B0F14",
+                    "outline-variant": "#243044",
+                    "surface-container-highest": "#1A2332",
+                    "surface-container-high": "#141A22",
+                    "surface-container-lowest": "#0B0F14"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "24px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "label-md": ["Geist", "sans-serif"],
+                    "headline-lg": ["Geist", "sans-serif"],
+                    "body-sm": ["Geist", "sans-serif"],
+                    "mono-sm": ["JetBrains Mono", "monospace"],
+                    "headline-md": ["Geist", "sans-serif"],
+                    "body-md": ["Geist", "sans-serif"],
+                    "body-lg": ["Geist", "sans-serif"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                    "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                    "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                    "mono-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                    "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                    "body-lg": ["15px", { "lineHeight": "24px", "fontWeight": "400" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .card-surface {
+            background-color: #141A22;
+            border: 1px solid #243044;
+        }
+        .input-base {
+            background-color: #0B0F14;
+            border: 1px solid #243044;
+            transition: all 0.2s ease;
+        }
+        .input-base:focus {
+            border-color: #2DD4BF;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 18px;
+        }
+        .drop-zone {
+            border: 2px dashed #243044;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .drop-zone:hover {
+            border-color: #2DD4BF;
+            background: rgba(45, 212, 191, 0.04);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden">
+<header class="flex justify-between items-center px-margin-desktop h-14 w-full z-50 border-b border-outline-variant bg-brand-bg">
+<div class="flex items-center gap-4">
+<span class="text-headline-md font-headline-md font-bold text-primary">Clearance</span>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden md:block">Onboarding · Knowledge Base</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-1.5 rounded border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">Save progress</button>
+</div>
+</header>
+<main class="flex-grow flex w-full max-w-[1440px] mx-auto">
+<aside class="fixed left-0 top-14 h-[calc(100vh-56px)] w-[240px] flex flex-col border-r border-outline-variant bg-brand-bg py-md hidden lg:flex">
+<div class="px-md mb-xl">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-primary leading-tight">Onboarding</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Step 3: Knowledge</p>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 75%;"></div>
+</div>
+</div>
+<nav class="flex-grow px-sm space-y-1">
+<div class="flex items-center gap-3 px-md py-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-brand-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md">Inbox Setup</span>
+</div>
+<div class="flex items-center gap-3 px-md py-2 bg-[#141A22] text-[#2DD4BF] border-l-2 border-[#2DD4BF]">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md text-label-md">Knowledge Base</span>
+</div>
+<div class="flex items-center gap-3 px-md py-2 text-on-surface-variant opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-md text-label-md">Review</span>
+</div>
+</nav>
+<div class="mt-auto px-sm border-t border-outline-variant pt-md">
+<button class="w-full mt-2 py-2 text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">Skip for now</button>
+</div>
+</aside>
+<section class="flex-grow lg:pl-[240px] py-xl px-margin-mobile md:px-margin-desktop">
+<div class="max-w-[720px] mx-auto">
+<div class="flex items-center justify-between mb-8">
+<div class="flex gap-2">
+<div class="h-1.5 w-12 rounded-full bg-primary/40"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary/40"></div>
+<div class="h-1.5 w-12 rounded-full bg-primary shadow-[0_0_8px_rgba(45,212,191,0.4)]"></div>
+<div class="h-1.5 w-12 rounded-full bg-surface-container-highest"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Step 3 of 4</span>
+</div>
+<div class="card-surface p-xl rounded-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-primary/30"></div>
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Teach your autopilot</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Add company knowledge so Qwen drafts accurate replies. At least one source is required before going live.</p>
+</div>
+<div class="space-y-6">
+<div class="drop-zone rounded-lg p-xl text-center cursor-pointer" id="drop-zone">
+<span class="material-symbols-outlined text-primary text-[32px] mb-sm block mx-auto">upload_file</span>
+<p class="font-body-md text-on-surface mb-1">Drag & drop files here</p>
+<p class="font-body-sm text-on-surface-variant">PDF, DOCX, Markdown · max 25MB each</p>
+<button class="mt-md px-md py-2 bg-primary-container text-on-primary-container font-label-md rounded hover:opacity-90 transition-opacity" type="button">Browse files</button>
+</div>
+<ul class="space-y-2" id="file-list">
+<li class="flex items-center justify-between p-md bg-brand-bg border border-outline-variant rounded-lg">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">description</span>
+<div>
+<p class="font-body-md text-on-surface">Refund-Policy.pdf</p>
+<p class="font-body-sm text-on-surface-variant">1.2 MB</p>
+</div>
+</div>
+<span class="px-sm py-0.5 rounded text-[11px] font-bold uppercase bg-brand-success/15 text-brand-success">Indexed</span>
+</li>
+<li class="flex items-center justify-between p-md bg-brand-bg border border-outline-variant rounded-lg">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">article</span>
+<div>
+<p class="font-body-md text-on-surface">SSO-FAQ.md</p>
+<p class="font-body-sm text-on-surface-variant">48 KB</p>
+</div>
+</div>
+<span class="px-sm py-0.5 rounded text-[11px] font-bold uppercase bg-brand-success/15 text-brand-success">Indexed</span>
+</li>
+</ul>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface block uppercase tracking-wider opacity-70" for="faq-paste">Paste FAQ or policy text</label>
+<textarea class="w-full min-h-[120px] px-md py-md rounded input-base text-on-surface font-body-md placeholder:text-on-surface-variant/50" id="faq-paste" placeholder="Paste internal runbooks, macros, or common answers…"></textarea>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface block uppercase tracking-wider opacity-70" for="help-url">Help center URL (optional)</label>
+<div class="flex gap-sm">
+<input class="flex-grow h-11 px-md rounded input-base text-on-surface font-body-md" id="help-url" placeholder="https://docs.acme.com/support" type="url"/>
+<button class="px-lg h-11 border border-outline-variant text-on-surface-variant font-label-md rounded hover:bg-surface-container-high transition-colors" type="button">Fetch</button>
+</div>
+</div>
+<div class="flex items-center justify-between py-2 border-y border-outline-variant/30">
+<div>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider opacity-70 block">Apply knowledge to</span>
+<span class="text-body-sm text-on-surface-variant">This inbox only · Acme Support</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full peer peer-checked:bg-primary-container transition-colors">
+<div class="absolute left-[2px] top-[2px] w-4 h-4 bg-on-surface-variant rounded-full peer-checked:translate-x-5 peer-checked:bg-on-primary-container transition-transform"></div>
+</div>
+</label>
+</div>
+<div class="p-md rounded-lg border border-brand-warning/30 bg-brand-warning/5 flex gap-md">
+<span class="material-symbols-outlined text-brand-warning shrink-0">info</span>
+<p class="font-body-sm text-on-surface-variant"><strong class="text-on-surface">Without knowledge,</strong> drafts may be generic. The agent cites sources in the autopilot panel when matches are found.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-sm pt-2">
+<button class="sm:order-2 flex-1 h-12 bg-primary-container text-on-primary-container font-bold rounded hover:opacity-90 transition-all flex items-center justify-center gap-2" type="button">
+<span>Continue to review</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="sm:order-1 h-12 px-lg border border-outline-variant text-on-surface-variant font-label-md rounded hover:bg-surface-container-high transition-colors" type="button">Back</button>
+</div>
+</div>
+</div>
+<p class="mt-6 text-center font-body-sm text-on-surface-variant">2 sources indexed · 847 chunks ready for RAG</p>
+</div>
+</section>
+</main>
+</body></html>

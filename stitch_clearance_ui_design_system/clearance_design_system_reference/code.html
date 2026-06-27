@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance Design System Reference</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        :root {
+            --font-geist: 'Geist', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-geist);
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 18px;
+        }
+
+        /* Custom scrollbar for the reference sheet */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #031426;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #243044;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3c4a46;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                      "on-primary-fixed": "#00201c",
+                      "on-surface": "#d3e4fd",
+                      "on-secondary-fixed": "#161c24",
+                      "surface-container-high": "#1a2b3e",
+                      "surface": "#031426",
+                      "on-primary": "#003731",
+                      "inverse-surface": "#d3e4fd",
+                      "secondary-fixed-dim": "#c1c7d2",
+                      "inverse-on-surface": "#213245",
+                      "error-container": "#93000a",
+                      "inverse-primary": "#006b5f",
+                      "on-secondary-fixed-variant": "#414750",
+                      "surface-dim": "#031426",
+                      "on-background": "#d3e4fd",
+                      "secondary-fixed": "#dde3ee",
+                      "outline-variant": "#3c4a46",
+                      "on-primary-fixed-variant": "#005047",
+                      "tertiary-container": "#ffac5a",
+                      "tertiary-fixed": "#ffdcc0",
+                      "tertiary": "#ffd1aa",
+                      "on-surface-variant": "#bacac5",
+                      "surface-variant": "#253649",
+                      "on-tertiary-fixed-variant": "#6b3b00",
+                      "primary-fixed-dim": "#3cddc7",
+                      "secondary-container": "#464c55",
+                      "surface-container-lowest": "#000f20",
+                      "outline": "#859490",
+                      "surface-container": "#0f2133",
+                      "on-tertiary-fixed": "#2d1600",
+                      "surface-tint": "#3cddc7",
+                      "surface-container-low": "#0b1d2f",
+                      "on-tertiary-container": "#744000",
+                      "surface-container-highest": "#253649",
+                      "primary-container": "#2dd4bf",
+                      "background": "#031426",
+                      "secondary": "#c1c7d2",
+                      "on-error": "#690005",
+                      "on-secondary": "#2b3139",
+                      "primary": "#2DD4BF",
+                      "error": "#ffb4ab",
+                      "primary-fixed": "#62fae3",
+                      "on-secondary-container": "#b6bcc7",
+                      "on-primary-container": "#00574d",
+                      "surface-bright": "#2a3a4e",
+                      "on-tertiary": "#4b2800",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb875"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "margin-mobile": "16px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "unit": "8px",
+                      "sm": "8px",
+                      "gutter": "16px",
+                      "md": "16px",
+                      "margin-desktop": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Geist", "sans-serif"],
+                      "label-md": ["Geist", "sans-serif"],
+                      "headline-lg": ["Geist", "sans-serif"],
+                      "body-sm": ["Geist", "sans-serif"],
+                      "body-lg": ["Geist", "sans-serif"],
+                      "mono-sm": ["JetBrains Mono"],
+                      "body-md": ["Geist", "sans-serif"]
+              },
+              "fontSize": {
+                      "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface p-xl">
+<div class="max-w-[1440px] mx-auto">
+<!-- 1. Header -->
+<header class="flex justify-between items-end border-b border-outline-variant pb-lg mb-xl">
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase">v2.4.0 High-Performance</span>
+<h1 class="font-headline-lg text-headline-lg font-black tracking-tight flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                    Clearance Design System
+                </h1>
+</div>
+<div class="text-right">
+<p class="font-body-sm text-body-sm text-on-surface-variant">System Status: <span class="text-primary">Optimized</span></p>
+<p class="font-mono-sm text-mono-sm text-on-surface-variant">2024-05-20_REF_01</p>
+</div>
+</header>
+<div class="grid grid-cols-12 gap-lg">
+<!-- 2. Color Swatches -->
+<section class="col-span-12">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-md tracking-wider">01. Color Tokens</h3>
+<div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-9 gap-sm">
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full bg-background border border-outline-variant rounded"></div>
+<span class="font-label-md text-label-md">Background</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#031426</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full bg-surface border border-outline-variant rounded"></div>
+<span class="font-label-md text-label-md">Surface</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#141A22</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full border border-outline-variant rounded bg-[#243044]"></div>
+<span class="font-label-md text-label-md">Border</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#243044</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full bg-primary-container rounded"></div>
+<span class="font-label-md text-label-md text-primary">Accent Teal</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#2DD4BF</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full bg-on-surface rounded"></div>
+<span class="font-label-md text-label-md">Text Primary</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#D3E4FD</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full bg-on-surface-variant rounded"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Text Muted</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#BACAC5</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full bg-tertiary-container rounded"></div>
+<span class="font-label-md text-label-md text-tertiary">Warning</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#FFAC5A</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full bg-error-container rounded"></div>
+<span class="font-label-md text-label-md text-error">Danger</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#93000A</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="h-16 w-full bg-[#006b5f] rounded"></div>
+<span class="font-label-md text-label-md text-[#3cddc7]">Success</span>
+<span class="font-mono-sm text-mono-sm opacity-60">#006B5F</span>
+</div>
+</div>
+</section>
+<!-- 3. Typography -->
+<section class="col-span-12 lg:col-span-8 space-y-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">02. Typography Hierarchy</h3>
+<div class="bg-surface-container-low border border-outline-variant p-lg rounded-xl space-y-lg">
+<div class="flex items-baseline gap-lg border-b border-outline-variant/30 pb-md">
+<span class="font-mono-sm text-mono-sm w-32 text-primary opacity-50">HEADLINE-LG</span>
+<h2 class="font-headline-lg text-headline-lg">Optimized Support Interface</h2>
+</div>
+<div class="flex items-baseline gap-lg border-b border-outline-variant/30 pb-md">
+<span class="font-mono-sm text-mono-sm w-32 text-primary opacity-50">HEADLINE-MD</span>
+<h3 class="font-headline-md text-headline-md">Agent Performance Overview</h3>
+</div>
+<div class="flex items-baseline gap-lg border-b border-outline-variant/30 pb-md">
+<span class="font-mono-sm text-mono-sm w-32 text-primary opacity-50">BODY-LG</span>
+<p class="font-body-lg text-body-lg">The autopilot is currently managing 42% of incoming requests with a 98% accuracy rate.</p>
+</div>
+<div class="flex items-baseline gap-lg border-b border-outline-variant/30 pb-md">
+<span class="font-mono-sm text-mono-sm w-32 text-primary opacity-50">BODY-MD</span>
+<p class="font-body-md text-body-md">Defaulting to standard protocols for cross-border transactions in regional hubs.</p>
+</div>
+<div class="flex items-baseline gap-lg">
+<span class="font-mono-sm text-mono-sm w-32 text-primary opacity-50">MONO-SM</span>
+<div class="space-y-xs">
+<code class="font-mono-sm text-mono-sm bg-surface-container-highest px-sm py-xs rounded text-primary">INC-1042-X9</code>
+<code class="font-mono-sm text-mono-sm block text-on-surface-variant">LOG_STREAM_CONNECTED::SESSION_ID=8829-102</code>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Buttons -->
+<section class="col-span-12 lg:col-span-4 space-y-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">03. Actions</h3>
+<div class="bg-surface-container-low border border-outline-variant p-lg rounded-xl flex flex-col gap-md">
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md py-md px-lg rounded flex items-center justify-center gap-sm active:scale-[0.98] transition-transform font-bold">
+                        PRIMARY ACTION
+                    </button>
+<button class="border border-outline-variant text-on-surface font-label-md text-label-md py-md px-lg rounded hover:bg-surface-container-high transition-colors">
+                        SECONDARY ACTION
+                    </button>
+<button class="text-on-surface-variant font-label-md text-label-md py-md px-lg rounded hover:text-on-surface transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">settings</span>
+                        GHOST BUTTON
+                    </button>
+<button class="bg-error-container text-white font-label-md text-label-md py-md px-lg rounded active:scale-[0.98] transition-transform">
+                        TERMINATE SESSION
+                    </button>
+</div>
+</section>
+<!-- 5. Badges & 6. Forms -->
+<section class="col-span-12 lg:col-span-6 space-y-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">04. Indicators &amp; Inputs</h3>
+<div class="bg-surface-container-low border border-outline-variant p-lg rounded-xl space-y-xl">
+<!-- Badges -->
+<div class="flex flex-wrap gap-sm">
+<span class="px-md py-1 rounded-full bg-[#006b5f]/20 text-[#3cddc7] font-mono-sm text-mono-sm border border-[#006b5f]/30">Safe</span>
+<span class="px-md py-1 rounded-full bg-error-container/20 text-error font-mono-sm text-mono-sm border border-error-container/30">Risky</span>
+<span class="px-md py-1 rounded-full bg-tertiary-container/20 text-tertiary font-mono-sm text-mono-sm border border-tertiary-container/30">Awaiting approval</span>
+<span class="px-md py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-mono-sm text-mono-sm border border-outline-variant">Auto-handled</span>
+</div>
+<!-- Forms -->
+<div class="space-y-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-xl py-md pl-12 text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Search system logs..." type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-md py-md text-body-md" placeholder="Metric ID" type="text"/>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded px-md py-md text-body-md text-on-surface appearance-none">
+<option>Region: Northern EU</option>
+<option>Region: US East</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Navigation Sidebar Mock -->
+<section class="col-span-12 lg:col-span-6 space-y-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">05. Navigation Shell</h3>
+<div class="bg-surface-container-low border border-outline-variant p-lg rounded-xl h-full">
+<nav class="flex flex-col gap-xs w-64">
+<div class="flex items-center gap-3 px-3 py-2 bg-surface-container-high text-primary rounded-lg font-medium">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-md text-label-md">Analytics Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined">inbox</span>
+<span class="font-label-md text-label-md">Incoming Threads</span>
+<span class="ml-auto bg-primary-container text-on-primary-container font-mono-sm text-[10px] px-1.5 py-0.5 rounded-full">12</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-label-md text-label-md">Automations</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-all cursor-pointer">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Team Management</span>
+</div>
+<div class="mt-xl pt-lg border-t border-outline-variant/30">
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface transition-all cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">System Settings</span>
+</div>
+</div>
+</nav>
+</div>
+</section>
+<!-- 7. List Component -->
+<section class="col-span-12 space-y-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">06. High-Density List Components</h3>
+<div class="bg-surface border border-outline-variant rounded overflow-hidden">
+<!-- Header -->
+<div class="grid grid-cols-12 bg-surface-container-high border-b border-outline-variant px-lg py-sm">
+<div class="col-span-2 font-label-md text-label-md text-on-surface-variant uppercase">Thread ID</div>
+<div class="col-span-5 font-label-md text-label-md text-on-surface-variant uppercase">Subject</div>
+<div class="col-span-2 font-label-md text-label-md text-on-surface-variant uppercase text-center">Status</div>
+<div class="col-span-3 font-label-md text-label-md text-on-surface-variant uppercase text-right">Timestamp</div>
+</div>
+<!-- Rows -->
+<div class="divide-y divide-outline-variant">
+<!-- Active/Unread Row -->
+<div class="grid grid-cols-12 px-lg py-md hover:bg-surface-container-low transition-colors relative group">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary"></div>
+<div class="col-span-2 font-mono-sm text-mono-sm text-primary">THR-9921-X</div>
+<div class="col-span-5 font-body-md text-body-md font-medium text-on-surface">Refund request for transaction #4022-01</div>
+<div class="col-span-2 flex justify-center">
+<span class="px-md py-0.5 rounded bg-tertiary-container/10 text-tertiary font-mono-sm text-[11px] border border-tertiary-container/20">Needs info</span>
+</div>
+<div class="col-span-3 font-mono-sm text-mono-sm text-on-surface-variant text-right">14:22:01 UTC</div>
+</div>
+<div class="grid grid-cols-12 px-lg py-md hover:bg-surface-container-low transition-colors">
+<div class="col-span-2 font-mono-sm text-mono-sm text-on-surface-variant">THR-9920-A</div>
+<div class="col-span-5 font-body-md text-body-md text-on-surface-variant">Update: API Key Rotation Completed</div>
+<div class="col-span-2 flex justify-center">
+<span class="px-md py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-sm text-[11px] border border-outline-variant">Auto-handled</span>
+</div>
+<div class="col-span-3 font-mono-sm text-mono-sm text-on-surface-variant text-right">13:58:44 UTC</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. Feedback: Approval Card -->
+<section class="col-span-12 lg:col-span-8 space-y-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">07. Decision &amp; Feedback</h3>
+<div class="bg-surface-container-low border border-outline-variant p-lg rounded-xl relative overflow-hidden flex flex-col md:flex-row gap-lg">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex-1 space-y-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">priority_high</span>
+<span class="font-headline-md text-headline-md">High-Risk Approval Required</span>
+</div>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant">ID: AUTH-882</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            User <span class="text-on-surface font-medium">@admin_root</span> is attempting to bypass security constraints for a bulk export (50k rows). Clearance AI requires human validation before proceeding.
+                        </p>
+<div class="flex gap-sm pt-sm">
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-lg py-sm rounded font-bold">APPROVE ACTION</button>
+<button class="border border-outline-variant text-error font-label-md text-label-md px-lg py-sm rounded hover:bg-error-container/10 transition-colors">DENY ACCESS</button>
+</div>
+</div>
+<div class="w-full md:w-64 bg-surface-container-lowest border border-outline-variant p-md rounded flex flex-col gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">AI CONFIDENCE LEVEL</span>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[82%]"></div>
+</div>
+<div class="flex justify-between font-mono-sm text-mono-sm">
+<span>82% Precision</span>
+<span class="text-primary">Reliable</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. Messaging: Toasts -->
+<section class="col-span-12 lg:col-span-4 space-y-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">08. Notifications</h3>
+<div class="flex flex-col gap-sm">
+<!-- Success Toast -->
+<div class="bg-surface-container-high border-l-4 border-[#3cddc7] p-md rounded shadow-xl flex items-center gap-md">
+<span class="material-symbols-outlined text-[#3cddc7]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Configuration Saved</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Deployment complete in 2s.</span>
+</div>
+</div>
+<!-- Warning Toast -->
+<div class="bg-surface-container-high border-l-4 border-tertiary p-md rounded shadow-xl flex items-center gap-md">
+<span class="material-symbols-outlined text-tertiary">warning</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">High Latency Detected</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Switching to regional fallback...</span>
+</div>
+</div>
+<!-- Error Toast -->
+<div class="bg-surface-container-high border-l-4 border-error p-md rounded shadow-xl flex items-center gap-md">
+<span class="material-symbols-outlined text-error">error</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Connection Failed</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ERR_TIMEOUT_RETRY_03</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 11. Empty State -->
+<section class="col-span-12 space-y-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">09. Edge Cases</h3>
+<div class="bg-surface-container-low border border-dashed border-outline-variant p-xl rounded-xl flex flex-col items-center justify-center text-center gap-md">
+<div class="h-16 w-16 bg-surface-container-high rounded-full flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl">search_off</span>
+</div>
+<div class="space-y-xs">
+<h4 class="font-headline-md text-headline-md">No telemetry found</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Adjust your filters or check the system status to see more results for this query.</p>
+</div>
+<button class="border border-outline-variant text-on-surface font-label-md text-label-md px-lg py-sm rounded hover:bg-surface-container-high transition-colors">
+                        RESET FILTERS
+                    </button>
+</div>
+</section>
+</div>
+<footer class="mt-xl pt-lg border-t border-outline-variant flex justify-between items-center text-on-surface-variant font-mono-sm text-mono-sm">
+<span>© 2024 CLEARANCE AI OPERATING SYSTEM</span>
+<div class="flex gap-xl">
+<span>ENCRYPTION: AES-256</span>
+<span>OS_KERNEL: V4.1-STABLE</span>
+</div>
+</footer>
+</div>
+</body></html>

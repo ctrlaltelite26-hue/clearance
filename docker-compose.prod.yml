@@ -1,0 +1,36 @@
+# Run on Alibaba Simple Application Server (or any Docker host).
+#
+# Prerequisites:
+#   - Images tagged locally as clearance-api:latest and clearance-worker:latest
+#     OR set REG in .env and pull from ACR first.
+#   - /opt/clearance/.env with DATABASE_URL, QWEN_*, OSS_*, AGENTMAIL_*, etc.
+#
+# Usage on server:
+#   cd /opt/clearance
+#   docker compose -f docker-compose.prod.yml up -d
+
+services:
+  api:
+    image: ${CLEARANCE_API_IMAGE:-clearance-api:latest}
+    container_name: clearance-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      APP: api
+      PORT: "3001"
+      NODE_ENV: production
+    ports:
+      - "3001:3001"
+    mem_limit: 384m
+
+  worker:
+    image: ${CLEARANCE_WORKER_IMAGE:-clearance-worker:latest}
+    container_name: clearance-worker
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      APP: worker
+      NODE_ENV: production
+    mem_limit: 384m
+    depends_on:
+      - api

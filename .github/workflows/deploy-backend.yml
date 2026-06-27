@@ -1,0 +1,117 @@
+# Build clearance-api + clearance-worker, push to GitHub Container Registry (GHCR),
+# then SSH to the Alibaba SAS and recreate containers.
+#
+# ── Required GitHub repo secrets (Settings → Secrets → Actions) ──
+#   SSH_HOST          47.236.111.114
+#   SSH_USER          root
+#   SSH_PRIVATE_KEY   PEM private key (see DEPLOY.md → CI/CD)
+#   GHCR_PAT          GitHub PAT with read:packages (server pulls images)
+#
+# ── One-time server setup ──
+#   Add the matching public key to /root/.ssh/authorized_keys
+#   Keep /opt/clearance/.env on the server (not in git)
+
+name: Deploy backend to SAS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/api/**"
+      - "apps/worker/**"
+      - "packages/**"
+      - "Dockerfile"
+      - "docker-compose.prod.yml"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - ".github/workflows/deploy-backend.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-backend-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Lowercase image owner (GHCR requirement)
+        id: meta
+        run: |
+          echo "owner=${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_OUTPUT"
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push API image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          build-args: APP=api
+          tags: |
+            ghcr.io/${{ steps.meta.outputs.owner }}/clearance-api:latest
+            ghcr.io/${{ steps.meta.outputs.owner }}/clearance-api:${{ github.sha }}
+
+      - name: Build and push worker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          build-args: APP=worker
+          tags: |
+            ghcr.io/${{ steps.meta.outputs.owner }}/clearance-worker:latest
+            ghcr.io/${{ steps.meta.outputs.owner }}/clearance-worker:${{ github.sha }}
+
+      - name: Upload compose file
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: docker-compose.prod.yml
+          target: /opt/clearance
+
+      - name: Deploy on SAS
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          GHCR_PAT: ${{ secrets.GHCR_PAT }}
+          IMAGE_OWNER: ${{ steps.meta.outputs.owner }}
+          IMAGE_TAG: latest
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: GHCR_PAT,IMAGE_OWNER,IMAGE_TAG
+          script: |
+            set -euo pipefail
+            cd /opt/clearance
+            cp -f docker-compose.prod.yml docker-compose.yml
+
+            echo "$GHCR_PAT" | docker login ghcr.io -u "$IMAGE_OWNER" --password-stdin
+
+            export CLEARANCE_API_IMAGE="ghcr.io/${IMAGE_OWNER}/clearance-api:${IMAGE_TAG}"
+            export CLEARANCE_WORKER_IMAGE="ghcr.io/${IMAGE_OWNER}/clearance-worker:${IMAGE_TAG}"
+
+            docker pull "$CLEARANCE_API_IMAGE"
+            docker pull "$CLEARANCE_WORKER_IMAGE"
+
+            docker compose up -d --force-recreate
+
+            echo "==> Health check"
+            sleep 5
+            curl -sf http://127.0.0.1:3001/health
+            docker compose ps
+
+            docker image prune -f

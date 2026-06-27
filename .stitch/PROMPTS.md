@@ -1,0 +1,260 @@
+# Clearance — Stitch Prompts (copy-paste)
+
+**Before every prompt:** open `DESIGN.md` and prepend the **Stitch prefix** block.
+
+**Order:** Batch 0 → 3 → 2 → 5 → 1 → 4 → 6 → 7
+
+---
+
+## Batch 0 — Design system
+
+### 0.1 Component library
+
+```
+[PASTE STITCH PREFIX FROM DESIGN.md]
+
+Design a web UI design system reference sheet for "Clearance".
+
+Platform: Desktop 1440px, single artboard component gallery.
+
+Sections: color swatches (all tokens), typography scale, buttons (primary/secondary/ghost/danger), badges (Safe, Risky, Awaiting approval, Auto-handled, Needs info), form inputs, search field, email list row, agent status pill, sidebar nav states, toast examples, empty state block.
+```
+
+---
+
+## Batch 1 — Marketing
+
+### 1.1 Landing page
+
+```
+[PASTE STITCH PREFIX]
+
+Desktop marketing landing for Clearance.
+
+Hero: "Your inbox, on autopilot." Subhead about real email addresses and human approval when it matters. CTAs: Start free, See how it works. Trust: Built on AgentMail · Powered by Qwen Cloud.
+
+3 feature cards: Real inboxes, Smart triage, Human when it counts.
+4-step how it works. Footer. No stock photos.
+```
+
+### 1.2 How it works section
+
+```
+[PASTE STITCH PREFIX]
+
+Wide landing section: left = 4 steps (webhook → analyze → policy → approve), right = large static mockup of inbox + agent sidebar.
+```
+
+---
+
+## Batch 2 — Auth & onboarding
+
+### 2.1 Sign up
+
+```
+[PASTE STITCH PREFIX]
+
+Centered sign-up card: work email, password, company, terms checkbox, Create account, link to sign in. Optional product preview thumbnail.
+```
+
+### 2.2 Log in
+
+```
+[PASTE STITCH PREFIX]
+
+Login card: email, password, forgot link, Sign in, Continue with Google outline, create account link.
+```
+
+### 2.3 Create first inbox
+
+```
+[PASTE STITCH PREFIX]
+
+Onboarding step 2/3: inbox display name, username slug with preview support@acme.clearance.app, autopilot toggle, mode dropdown (Draft only / Auto-label + draft / Full with approvals), Create inbox.
+```
+
+### 2.4 Knowledge base (onboarding step 3) — **MISSING, generate this**
+
+```
+[PASTE STITCH PREFIX]
+
+Onboarding step 3 of 4: "Teach your autopilot."
+
+Progress: steps 1-2 complete, step 3 active.
+
+Main card:
+- Title: "Add your company knowledge"
+- Subtitle: "The agent uses these sources when drafting replies. Add at least one source to continue."
+
+Sections:
+1. Drag-and-drop upload zone (PDF, DOCX, Markdown, max 25MB) with file list below (name, size, remove)
+2. "Paste FAQ or policy text" — large textarea
+3. "Help center URL" — input + "Fetch" button (optional)
+4. Toggle: "Apply to all inboxes" vs "This inbox only"
+
+Sidebar onboarding nav: Inbox Setup ✓, AI Training (active), Team Access (optional later), Review (locked).
+
+Footer: Back, "Skip for now" (muted), primary "Continue" (disabled until ≥1 source).
+
+Show 2 uploaded files as example: "Refund-Policy.pdf", "SSO-FAQ.md" with green "Indexed" chips.
+```
+
+### 2.5 Onboarding success (step 4 — review & go live)
+
+```
+[PASTE STITCH PREFIX]
+
+Onboarding step 4 of 4 complete. Success: inbox live, copyable address chip, summary row (inbox + 2 knowledge sources indexed).
+
+Quick actions: Open inbox, Invite teammate, Add more knowledge.
+
+Tip: "Send a test email to this address to see autopilot in action."
+
+No confetti — subtle teal checkmark only. Sidebar: all steps complete.
+```
+
+---
+
+## Batch 3 — Core inbox
+
+### 3.1 Thread list (app shell)
+
+```
+[PASTE STITCH PREFIX]
+
+Superhuman-style inbox: sidebar (logo, inbox switcher, nav with Approvals badge 3), search, filters, thread list 8 rows with agent chips and confidence. One selected row.
+```
+
+### 3.2 Thread detail + agent panel
+
+```
+[PASTE STITCH PREFIX]
+
+3-column: narrow thread list, center conversation (3 messages), right Autopilot panel (intent, entities, action plan checklist, View approval button). Sample: Sarah billing access, 62% confidence.
+```
+
+### 3.3 Compose modal
+
+```
+[PASTE STITCH PREFIX]
+
+Modal: To, Cc, Subject, rich text area, Save draft, Send. Banner: autopilot may review before send.
+```
+
+---
+
+## Batch 4 — Agent & dashboard
+
+### 4.1 Agent trace panel
+
+```
+[PASTE STITCH PREFIX]
+
+Expanded sidebar: analysis cards, policy highlight, tool call timeline (lookup, ticket, access.propose), muted token footer.
+```
+
+### 4.2 Home dashboard
+
+```
+[PASTE STITCH PREFIX]
+
+Greeting, 4 metric cards (open threads, awaiting approval, auto-handled, avg response), recent threads table, agent activity feed, create inbox CTA.
+```
+
+---
+
+## Batch 5 — Approvals
+
+### 5.1 Approvals queue
+
+```
+[PASTE STITCH PREFIX]
+
+Approvals page: tabs Pending/Approved/Rejected, 3 pending cards with risk badge, rationale, confidence, Approve/Reject/Open thread.
+```
+
+### 5.2 Approval drawer
+
+```
+[PASTE STITCH PREFIX]
+
+480px slide-over: customer excerpt, agent interpretation, proposed access details, comment field, Reject / Approve & execute.
+```
+
+### 5.3 Draft review
+
+```
+[PASTE STITCH PREFIX]
+
+Split: thread context left, editable draft right, "Generated by Qwen" chip, Approve & send.
+```
+
+---
+
+## Batch 6 — Settings
+
+### 6.1 Inboxes
+
+```
+[PASTE STITCH PREFIX]
+
+Settings inboxes list as cards with address, autopilot toggle, webhook connected status, Create inbox.
+```
+
+### 6.2 Agent rules
+
+```
+[PASTE STITCH PREFIX]
+
+Policy toggles: approval rules, blocked roles, confidence threshold, safe actions checkboxes, Save bar.
+```
+
+### 6.3 Knowledge library (settings) — **MISSING, generate this**
+
+```
+[PASTE STITCH PREFIX]
+
+Settings > Knowledge Library (per inbox selector at top).
+
+Table of sources: Name, Type (PDF/URL/Text), Status (Indexing/Ready/Failed), Chunks, Last synced, actions (Re-index, Delete).
+
+Top: "Add source" button opening upload / URL / paste options.
+
+Right panel or banner: "12 sources · 847 chunks · Last indexed 2h ago"
+
+Show agent citation preview: "When replying, the agent cites up to 3 sources" with example chips.
+
+Empty state if no sources: "No knowledge yet — autopilot will guess. Add your refund policy, product FAQ, or internal runbooks."
+```
+
+### 6.4 Custom domain
+
+```
+[PASTE STITCH PREFIX]
+
+DNS records table with copy + verify status, SPF/DKIM/DMARC helper, Verify domain button.
+```
+
+---
+
+## Batch 7 — Polish
+
+### 7.1 Empty states
+
+```
+[PASTE STITCH PREFIX]
+
+Single artboard: 4 empty states — no threads, no approvals, no search results, autopilot paused.
+```
+
+### 7.2 Mobile inbox (optional)
+
+```
+[PASTE STITCH PREFIX]
+
+390px mobile thread list, bottom tabs Inbox/Approvals/Settings, 6 rows, dark theme.
+```
+
+---
+
+Save exports to `.stitch/designs/{slug}/` (screenshot + HTML if available).

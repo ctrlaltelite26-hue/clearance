@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Approvals | Clearance AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                    "error-container": "#93000a",
+                    "tertiary-container": "#ffac5a",
+                    "on-secondary-fixed-variant": "#414750",
+                    "inverse-surface": "#d3e4fd",
+                    "outline-variant": "#3c4a46",
+                    "surface-tint": "#3cddc7",
+                    "on-secondary-container": "#b6bcc7",
+                    "on-background": "#d3e4fd",
+                    "on-secondary-fixed": "#161c24",
+                    "on-tertiary-container": "#744000",
+                    "primary-fixed": "#62fae3",
+                    "on-primary": "#003731",
+                    "on-surface-variant": "#bacac5",
+                    "inverse-on-surface": "#213245",
+                    "surface-variant": "#253649",
+                    "on-tertiary": "#4b2800",
+                    "tertiary-fixed": "#ffdcc0",
+                    "on-error": "#690005",
+                    "on-surface": "#d3e4fd",
+                    "primary": "#2DD4BF",
+                    "surface-container-lowest": "#000f20",
+                    "on-tertiary-fixed": "#2d1600",
+                    "surface-container-low": "#0b1d2f",
+                    "surface-container": "#0f2133",
+                    "background": "#031426",
+                    "on-secondary": "#2b3139",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed-dim": "#ffb875",
+                    "surface-bright": "#2a3a4e",
+                    "outline": "#859490",
+                    "on-primary-fixed": "#00201c",
+                    "secondary-container": "#464c55",
+                    "primary-container": "#2dd4bf",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#005047",
+                    "on-tertiary-fixed-variant": "#6b3b00",
+                    "surface": "#031426",
+                    "secondary-fixed-dim": "#c1c7d2",
+                    "tertiary": "#ffd1aa",
+                    "secondary": "#c1c7d2",
+                    "inverse-primary": "#006b5f",
+                    "surface-container-highest": "#253649",
+                    "on-primary-container": "#00574d",
+                    "surface-container-high": "#1a2b3e",
+                    "secondary-fixed": "#dde3ee",
+                    "primary-fixed-dim": "#3cddc7",
+                    "surface-dim": "#031426"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "gutter": "16px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "margin-desktop": "24px",
+                    "xs": "4px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "mono-sm": ["JetBrains Mono"],
+                    "headline-lg": ["Geist"],
+                    "body-md": ["Geist"],
+                    "body-lg": ["Geist"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-size: 18px;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0B0F14;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #243044;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Anchor -->
+<aside class="w-[240px] h-screen fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col py-lg px-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Clearance</h1>
+<p class="font-label-md text-label-md text-primary opacity-80 uppercase tracking-widest mt-1">AI Autopilot</p>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-high cursor-pointer active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span class="font-body-md text-body-md">Threads</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded bg-surface-container-highest text-primary font-bold cursor-pointer active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-body-md text-body-md">Approvals</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-high cursor-pointer active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-high cursor-pointer active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-body-md text-body-md">Automations</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-high cursor-pointer active:scale-95 group" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<button class="mb-xl bg-primary-container text-on-primary-container font-bold py-sm px-md rounded flex items-center justify-center gap-sm hover:brightness-110 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span>New Thread</span>
+</button>
+<footer class="pt-md border-t border-outline-variant space-y-2">
+<a class="flex items-center gap-md px-md py-xs text-on-surface-variant hover:text-primary transition-colors text-mono-sm font-mono-sm" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Help</span>
+</a>
+<a class="flex items-center gap-md px-md py-xs text-on-surface-variant hover:text-primary transition-colors text-mono-sm font-mono-sm" href="#">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+<span>Status</span>
+</a>
+<div class="px-md mt-md flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs0tGCgxPHbldbXg2QKy31pSlOPOO1BznSHZyThQ0-J3Rzrd4V7Uhu6NLw1nMT_3ozhPON25mfc1jWA-qa_tZ-EHML8eLp4SEBBVbbJIiNOkRm9CL6WSSL_Mom6OI8ReLXCm7GrLOJXYGFiDKNshCh8uRZuDBeDzWClScaXwoeITIyWgy2Kzf-JR8P3_Wh2iPQejBHJYybMnaNmQhHYMH7aXOtJ3GqGq-7MIMt8mrAAWKiNkvzwoTtO2BC2GMH5_ENhX2FoVchuU-K"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-bold text-on-surface">Agent Alpha</span>
+<span class="text-[10px] text-on-surface-variant opacity-60">L3 Supervisor</span>
+</div>
+</div>
+</footer>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="h-14 fixed top-0 right-0 left-[240px] z-40 bg-surface border-b border-outline-variant flex items-center justify-between px-lg">
+<div class="flex items-center bg-surface-container-low border border-outline-variant rounded px-sm py-1 w-96 focus-within:ring-1 focus-within:ring-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-full placeholder:text-on-surface-variant/40" placeholder="Search approvals or INC-ID..." type="text"/>
+</div>
+<div class="flex items-center gap-lg">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md">Support</button>
+<button class="bg-primary text-on-primary font-bold px-md py-1.5 rounded text-label-md hover:brightness-110 active:scale-95 transition-all">Deploy AI</button>
+<div class="flex items-center gap-md border-l border-outline-variant pl-lg">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pl-[240px] pt-14 pb-10 min-h-screen bg-background">
+<div class="max-w-[1440px] mx-auto p-lg">
+<!-- Page Header -->
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Approvals</h2>
+<!-- Tab Navigation -->
+<div class="flex items-center gap-xl border-b border-outline-variant/30">
+<button class="pb-md px-1 text-primary border-b-2 border-primary font-bold text-label-md transition-all">
+                        Pending (3)
+                    </button>
+<button class="pb-md px-1 text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all">
+                        Approved
+                    </button>
+<button class="pb-md px-1 text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all">
+                        Rejected
+                    </button>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 gap-md">
+<!-- Card 1: Safe -->
+<div class="bg-[#141A22] border border-[#243044] border-l-4 border-l-primary-container rounded shadow-sm hover:bg-[#1C2530] transition-all group overflow-hidden">
+<div class="p-md flex flex-col md:flex-row md:items-center justify-between gap-lg">
+<div class="flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<span class="font-mono-sm text-mono-sm text-primary opacity-80 bg-primary/10 px-2 py-0.5 rounded">INC-1042</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Billing Inquiry</h3>
+<div class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider">Safe</div>
+</div>
+<p class="text-on-surface-variant max-w-2xl font-body-md text-body-md italic leading-relaxed">
+                                "Standard refund request following policy."
+                            </p>
+<div class="flex items-center gap-lg mt-1">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant/60 font-bold">Confidence</span>
+<span class="font-mono-sm text-mono-sm text-primary">94%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant/60 font-bold">Agent Recommendation</span>
+<span class="text-body-sm font-body-sm text-on-surface">Auto-Approve</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-[#2DD4BF] text-[#0B0F14] font-bold px-lg py-2 rounded text-label-md hover:brightness-110 active:scale-95 transition-all">Approve</button>
+<button class="border border-outline-variant text-on-surface-variant font-bold px-lg py-2 rounded text-label-md hover:bg-surface-container-high transition-all">Reject</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors" title="Open Thread">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Risky -->
+<div class="bg-[#141A22] border border-[#243044] border-l-4 border-l-tertiary-container rounded shadow-sm hover:bg-[#1C2530] transition-all group overflow-hidden">
+<div class="p-md flex flex-col md:flex-row md:items-center justify-between gap-lg">
+<div class="flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<span class="font-mono-sm text-mono-sm text-tertiary-container opacity-80 bg-tertiary-container/10 px-2 py-0.5 rounded">INC-1055</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Feature Access</h3>
+<div class="bg-tertiary-container/10 text-tertiary-container px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider">Risky</div>
+</div>
+<p class="text-on-surface-variant max-w-2xl font-body-md text-body-md italic leading-relaxed">
+                                "User requested beta access override."
+                            </p>
+<div class="flex items-center gap-lg mt-1">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant/60 font-bold">Confidence</span>
+<span class="font-mono-sm text-mono-sm text-tertiary-container">68%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant/60 font-bold">Anomaly Score</span>
+<span class="text-body-sm font-body-sm text-on-surface">Moderate (High Priority)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-[#2DD4BF] text-[#0B0F14] font-bold px-lg py-2 rounded text-label-md hover:brightness-110 active:scale-95 transition-all">Approve</button>
+<button class="border border-outline-variant text-on-surface-variant font-bold px-lg py-2 rounded text-label-md hover:bg-surface-container-high transition-all">Reject</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors" title="Open Thread">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: High Risk -->
+<div class="bg-[#141A22] border border-[#243044] border-l-4 border-l-error rounded shadow-sm hover:bg-[#1C2530] transition-all group overflow-hidden">
+<div class="p-md flex flex-col md:flex-row md:items-center justify-between gap-lg">
+<div class="flex flex-col gap-sm">
+<div class="flex items-center gap-md">
+<span class="font-mono-sm text-mono-sm text-error opacity-80 bg-error/10 px-2 py-0.5 rounded">INC-1089</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Security Reset</h3>
+<div class="bg-error/10 text-error px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider">High Risk</div>
+</div>
+<p class="text-on-surface-variant max-w-2xl font-body-md text-body-md italic leading-relaxed">
+                                "Sensitive credential reset detected."
+                            </p>
+<div class="flex items-center gap-lg mt-1">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant/60 font-bold">Confidence</span>
+<span class="font-mono-sm text-mono-sm text-error">42%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-on-surface-variant/60 font-bold">Flagged By</span>
+<span class="text-body-sm font-body-sm text-error font-bold">Sentinel Protocol</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-[#2DD4BF] text-[#0B0F14] font-bold px-lg py-2 rounded text-label-md hover:brightness-110 active:scale-95 transition-all">Approve</button>
+<button class="border border-outline-variant text-on-surface-variant font-bold px-lg py-2 rounded text-label-md hover:bg-surface-container-high transition-all">Reject</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors" title="Open Thread">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Contextual Illustration -->
+<div class="mt-xl opacity-20 hover:opacity-40 transition-opacity duration-700 pointer-events-none select-none flex justify-center">
+
+</div>
+</div>
+</main>
+<!-- Footer Anchor -->
+<footer class="fixed bottom-0 right-0 left-[240px] h-10 bg-surface-container-low border-t border-outline-variant flex items-center justify-between px-lg z-40">
+<span class="text-on-surface-variant font-mono-sm text-mono-sm opacity-60">© 2026 Clearance AI</span>
+<div class="flex items-center gap-lg">
+<a class="text-on-surface-variant font-mono-sm text-mono-sm hover:text-primary transition-opacity" href="#">Legal</a>
+<a class="text-on-surface-variant font-mono-sm text-mono-sm hover:text-primary transition-opacity" href="#">Privacy</a>
+<a class="text-on-surface-variant font-mono-sm text-mono-sm hover:text-primary transition-opacity" href="#">API Status</a>
+<div class="flex items-center gap-xs ml-4">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-on-surface-variant font-mono-sm text-mono-sm uppercase tracking-tighter">System Nominal</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Tab selection logic
+        const tabs = document.querySelectorAll('main h2 + div button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('text-primary', 'border-b-2', 'border-primary', 'font-bold');
+                    t.classList.add('text-on-surface-variant');
+                });
+                tab.classList.add('text-primary', 'border-b-2', 'border-primary', 'font-bold');
+                tab.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

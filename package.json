@@ -1,0 +1,26 @@
+{
+  "name": "clearance",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @clearance/api --filter @clearance/worker --filter @clearance/web --filter @clearance/mocks dev",
+    "dev:kill": "node scripts/dev-kill.mjs",
+    "dev:api": "pnpm --filter @clearance/api dev",
+    "dev:worker": "pnpm --filter @clearance/worker dev",
+    "dev:web": "pnpm --filter @clearance/web dev",
+    "dev:mocks": "pnpm --filter @clearance/mocks dev",
+    "db:generate": "pnpm --filter @clearance/db generate",
+    "db:migrate": "pnpm --filter @clearance/db migrate",
+    "db:push": "pnpm --filter @clearance/db push",
+    "db:reset": "pnpm --filter @clearance/db reset",
+    "build": "pnpm run -r build",
+    "screenshots:ui": "node scripts/screenshot-uis.mjs",
+    "fix:stitch-html": "node scripts/fix-stitch-html.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.1.0"
+  }
+}

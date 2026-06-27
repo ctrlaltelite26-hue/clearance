@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance | Inboxes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 18px;
+        }
+        body {
+            background-color: #0B0F14; /* Using background token from config */
+            color: #E8EDF4; /* on-surface */
+        }
+        .sidebar-item-active {
+            background-color: #253649; /* surface-container-highest */
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                      "primary-fixed": "#62fae3",
+                      "on-primary-container": "#00574d",
+                      "outline": "#859490",
+                      "tertiary": "#ffd1aa",
+                      "on-primary-fixed-variant": "#005047",
+                      "on-tertiary-fixed-variant": "#6b3b00",
+                      "on-secondary-fixed-variant": "#414750",
+                      "on-tertiary": "#4b2800",
+                      "error": "#ffb4ab",
+                      "background": "#031426",
+                      "secondary-fixed-dim": "#c1c7d2",
+                      "on-tertiary-container": "#744000",
+                      "on-error": "#690005",
+                      "outline-variant": "#3c4a46",
+                      "on-background": "#d3e4fd",
+                      "on-surface-variant": "#bacac5",
+                      "inverse-on-surface": "#213245",
+                      "inverse-surface": "#d3e4fd",
+                      "surface-variant": "#253649",
+                      "surface-dim": "#031426",
+                      "secondary-fixed": "#dde3ee",
+                      "on-surface": "#d3e4fd",
+                      "tertiary-container": "#ffac5a",
+                      "primary-fixed-dim": "#3cddc7",
+                      "on-secondary-fixed": "#161c24",
+                      "primary": "#2DD4BF",
+                      "inverse-primary": "#006b5f",
+                      "surface-container-high": "#1a2b3e",
+                      "tertiary-fixed-dim": "#ffb875",
+                      "surface-bright": "#2a3a4e",
+                      "tertiary-fixed": "#ffdcc0",
+                      "surface": "#031426",
+                      "on-tertiary-fixed": "#2d1600",
+                      "surface-container-lowest": "#000f20",
+                      "on-secondary": "#2b3139",
+                      "error-container": "#93000a",
+                      "on-primary": "#003731",
+                      "surface-container": "#0f2133",
+                      "surface-container-low": "#0b1d2f",
+                      "secondary-container": "#464c55",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed": "#00201c",
+                      "on-secondary-container": "#b6bcc7",
+                      "surface-container-highest": "#253649",
+                      "primary-container": "#2dd4bf",
+                      "surface-tint": "#3cddc7",
+                      "secondary": "#c1c7d2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "2px",
+                      "lg": "4px",
+                      "xl": "8px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "gutter": "16px",
+                      "margin-desktop": "24px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "unit": "8px",
+                      "xl": "32px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Geist"],
+                      "body-md": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "mono-sm": ["JetBrains Mono"],
+                      "label-md": ["Geist"],
+                      "headline-lg": ["Geist"],
+                      "body-lg": ["Geist"]
+              },
+              "fontSize": {
+                      "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="antialiased overflow-hidden">
+<!-- Sidebar Wrapper -->
+<aside class="w-[240px] h-screen fixed left-0 top-0 border-r border-outline-variant flex flex-col py-lg px-md gap-sm z-20">
+<div class="flex items-center gap-sm mb-lg px-xs">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">clear_all</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary leading-tight">Clearance</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-medium">AI Autopilot</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-sm px-sm py-xs rounded hover:bg-surface-container-high transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">inbox</span>
+<span class="font-body-md text-body-md">Inbox</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded hover:bg-surface-container-high transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-body-md text-body-md">Approvals</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded hover:bg-surface-container-high transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md text-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded hover:bg-surface-container-high transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-body-md text-body-md">Automations</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs rounded bg-surface-container-highest text-primary font-medium" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-lg border-t border-outline-variant px-xs">
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-sm rounded-lg flex items-center justify-center gap-xs hover:opacity-90 transition-opacity active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                New Campaign
+            </button>
+</div>
+</aside>
+<!-- Header Navigation -->
+<header class="h-14 fixed top-0 right-0 left-[240px] z-10 border-b border-outline-variant bg-surface flex items-center justify-between px-lg">
+<div class="flex items-center gap-md flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-xl pr-md py-xs font-body-sm text-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-on-surface-variant" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-1.5 h-1.5 bg-primary rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Z4ua3Eu3e2QfZQ-bVlVPALVJsZid7-g7V1__c3N3HzMbe-n5pTYx_VWxowk8BHaPqR8IWfy3MlGWm0EUeV5AZw6yOil4sQHiS3EYnRF50iyytkNDyeNsvYIZ0BpyryqA6DsDLREJ9SOv5LjgB19ZRB0JHrGJvtvY3kmNWu-OEqgOE2YRlIinsaEW88sTOTPx-EQsqmgvRD6Wb9Ybs9iUTSUyk0Ew27Qn74J04K2GyEhrX4vJDILyfGk8F0RilCRpnR4zBp66Bzav"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-[240px] pt-14 h-screen overflow-y-auto">
+<div class="max-w-[1200px] mx-auto p-lg">
+<!-- Page Header -->
+<div class="flex items-end justify-between mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Inboxes</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Manage your connected support channels and AI autopilot settings.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md flex items-center gap-sm hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                    Create Inbox
+                </button>
+</div>
+<!-- Dashboard Bento / Grid -->
+<div class="grid grid-cols-1 gap-md">
+<!-- Inbox Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl group hover:border-primary/40 transition-colors overflow-hidden">
+<div class="flex items-center justify-between p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center rounded border border-outline-variant">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">support@acme.com</h3>
+<div class="flex items-center gap-sm mt-1">
+<span class="flex items-center gap-xs font-mono-sm text-mono-sm text-[#22C55E]">
+<span class="w-1.5 h-1.5 bg-[#22C55E] rounded-full animate-pulse"></span>
+                                        Webhook Connected
+                                    </span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Default Priority</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="text-right">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Autopilot</p>
+<label class="relative inline-flex items-center mt-1 cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container peer-checked:after:bg-on-primary-container"></div>
+</label>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant"></div>
+<div class="flex flex-col items-end">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Threshold</p>
+<span class="font-mono-sm text-mono-sm text-primary mt-1">85% Auto-reply</span>
+</div>
+<div class="flex gap-sm">
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-xs hover:bg-error/10 rounded text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inbox Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl group hover:border-primary/40 transition-colors overflow-hidden">
+<div class="flex items-center justify-between p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center rounded border border-outline-variant">
+<span class="material-symbols-outlined text-secondary">alternate_email</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">billing@acme.com</h3>
+<div class="flex items-center gap-sm mt-1">
+<span class="flex items-center gap-xs font-mono-sm text-mono-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 bg-on-surface-variant rounded-full"></span>
+                                        IMAP Idle
+                                    </span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Finance Channel</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="text-right">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Autopilot</p>
+<label class="relative inline-flex items-center mt-1 cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container peer-checked:after:bg-on-primary-container"></div>
+</label>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant"></div>
+<div class="flex flex-col items-end">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Threshold</p>
+<span class="font-mono-sm text-mono-sm text-on-surface-variant mt-1">Manual only</span>
+</div>
+<div class="flex gap-sm">
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-xs hover:bg-error/10 rounded text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inbox Card 3 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl group hover:border-primary/40 transition-colors overflow-hidden">
+<div class="flex items-center justify-between p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center rounded border border-outline-variant">
+<span class="material-symbols-outlined text-primary">chat_bubble</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">help-center-v2@acme.com</h3>
+<div class="flex items-center gap-sm mt-1">
+<span class="flex items-center gap-xs font-mono-sm text-mono-sm text-[#22C55E]">
+<span class="w-1.5 h-1.5 bg-[#22C55E] rounded-full animate-pulse"></span>
+                                        Webhook Connected
+                                    </span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Knowledge Base Sync</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="text-right">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Autopilot</p>
+<label class="relative inline-flex items-center mt-1 cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface-variant after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container peer-checked:after:bg-on-primary-container"></div>
+</label>
+</div>
+<div class="h-10 w-[1px] bg-outline-variant"></div>
+<div class="flex flex-col items-end">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-semibold">Threshold</p>
+<span class="font-mono-sm text-mono-sm text-primary mt-1">92% Precision</span>
+</div>
+<div class="flex gap-sm">
+<button class="p-xs hover:bg-surface-container-high rounded text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-xs hover:bg-error/10 rounded text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Section: Advanced Settings -->
+<div class="mt-xl grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="p-lg bg-surface-container border border-outline-variant rounded-xl">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">security</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Global Safety Protocol</h4>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Define how the AI handles sensitive data across all connected inboxes before generation.</p>
+<div class="space-y-md">
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded border border-outline-variant">
+<span class="font-label-md text-label-md">PII Redaction</span>
+<span class="px-sm py-[2px] bg-primary/10 text-primary text-[10px] rounded uppercase font-bold">Always On</span>
+</div>
+<div class="flex items-center justify-between p-sm bg-surface-container-low rounded border border-outline-variant">
+<span class="font-label-md text-label-md">Sentiment Analysis Override</span>
+<span class="px-sm py-[2px] bg-surface-container-highest text-on-surface-variant text-[10px] rounded uppercase font-bold">Enabled</span>
+</div>
+</div>
+</div>
+<div class="p-lg bg-surface-container border border-outline-variant rounded-xl relative overflow-hidden group">
+
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">hub</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Integrations Status</h4>
+</div>
+<div class="flex gap-md mb-lg">
+<div class="bg-surface-container-lowest p-sm border border-outline-variant rounded flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-[#22C55E]"></span>
+<span class="font-mono-sm text-mono-sm">AgentMail</span>
+</div>
+<div class="bg-surface-container-lowest p-sm border border-outline-variant rounded flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-[#22C55E]"></span>
+<span class="font-mono-sm text-mono-sm">Ticketing</span>
+</div>
+<div class="bg-surface-container-lowest p-sm border border-outline-variant rounded flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-[#22C55E]"></span>
+<span class="font-mono-sm text-mono-sm">IdP</span>
+</div>
+</div>
+<button class="text-primary font-label-md text-label-md hover:underline inline-flex items-center gap-xs">
+                            View API Documentation
+                            <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="mt-xl flex items-center justify-between text-on-surface-variant py-lg border-t border-outline-variant/30">
+<p class="font-label-md text-label-md">Clearance v2.4.0-stable</p>
+<div class="flex gap-lg">
+<a class="font-label-md text-label-md hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-md text-label-md hover:text-primary transition-colors" href="#">System Status</a>
+</div>
+</footer>
+</div>
+</main>
+<script>
+        // Micro-interactions for the search bar
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === '/') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+
+        // Toggle state simulation
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const card = this.closest('.group');
+                if (this.checked) {
+                    card.classList.remove('opacity-70');
+                } else {
+                    card.classList.add('opacity-70');
+                }
+            });
+        });
+    </script>
+</body></html>

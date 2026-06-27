@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+
+<style>
+        body {
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 20px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0B0F14;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #243044;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #3c4a46;
+        }
+        .text-editor-focus:focus-within {
+            border-color: #2DD4BF;
+            box-shadow: 0 0 0 2px rgba(87, 241, 219, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                        "outline-variant": "#243044",
+                        "on-surface-variant": "#bacac5",
+                        "secondary": "#c1c7d2",
+                        "on-primary-fixed-variant": "#005047",
+                        "outline": "#859490",
+                        "inverse-surface": "#d3e4fd",
+                        "surface-container-high": "#1c2530",
+                        "on-surface": "#E8EDF4",
+                        "inverse-on-surface": "#213245",
+                        "surface-container-highest": "#253649",
+                        "secondary-fixed-dim": "#c1c7d2",
+                        "on-primary": "#0B0F14",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "#000f20",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#2b3139",
+                        "on-tertiary-fixed": "#2d1600",
+                        "background": "#0B0F14",
+                        "on-secondary-fixed-variant": "#414750",
+                        "tertiary-container": "#ffac5a",
+                        "on-primary-fixed": "#00201c",
+                        "on-tertiary-fixed-variant": "#6b3b00",
+                        "on-tertiary-container": "#744000",
+                        "surface-container-low": "#141A22",
+                        "surface-bright": "#2a3a4e",
+                        "on-tertiary": "#4b2800",
+                        "primary-fixed-dim": "#3cddc7",
+                        "on-secondary-fixed": "#161c24",
+                        "on-primary-container": "#00574d",
+                        "error-container": "#93000a",
+                        "inverse-primary": "#006b5f",
+                        "surface-container": "#0f2133",
+                        "on-background": "#d3e4fd",
+                        "tertiary-fixed-dim": "#ffb875",
+                        "surface": "#031426",
+                        "secondary-fixed": "#dde3ee",
+                        "primary": "#2DD4BF",
+                        "tertiary": "#ffd1aa",
+                        "on-error": "#690005",
+                        "primary-fixed": "#62fae3",
+                        "surface-tint": "#3cddc7",
+                        "surface-dim": "#031426",
+                        "secondary-container": "#464c55",
+                        "on-secondary-container": "#b6bcc7",
+                        "tertiary-fixed": "#ffdcc0",
+                        "primary-container": "#2dd4bf",
+                        "surface-variant": "#253649"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "unit": "8px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Geist"],
+                        "label-md": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "body-md": ["Geist"],
+                        "mono-sm": ["JetBrains Mono"],
+                        "headline-md": ["Geist"],
+                        "headline-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-body-md text-on-surface overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low w-[240px] h-screen fixed left-0 top-0 border-r border-outline-variant flex flex-col py-md px-sm z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Clearance</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-70">AI Autopilot</p>
+</div>
+<nav class="flex-grow space-y-xs">
+<div class="px-sm pb-xs">
+<button class="w-full bg-primary-container text-on-primary font-bold py-sm px-md rounded flex items-center gap-sm hover:opacity-90 transition-all active:scale-[0.99]">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-md text-label-md">New Thread</span>
+</button>
+</div>
+<a class="flex items-center gap-sm px-md py-sm rounded text-primary bg-surface-container-high font-bold hover:bg-surface-container-highest transition-colors group" href="#">
+<span class="material-symbols-outlined">inbox</span>
+<span class="font-body-md">Inbox</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded text-on-surface-variant font-medium hover:bg-surface-container-highest hover:text-on-surface transition-colors group" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-body-md">Approvals</span>
+<span class="ml-auto bg-primary/10 text-primary px-1.5 py-0.5 rounded text-[10px] font-bold">12</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded text-on-surface-variant font-medium hover:bg-surface-container-highest hover:text-on-surface transition-colors group" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded text-on-surface-variant font-medium hover:bg-surface-container-highest hover:text-on-surface transition-colors group" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-body-md">Automations</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded text-on-surface-variant font-medium hover:bg-surface-container-highest hover:text-on-surface transition-colors group" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-md space-y-xs">
+<a class="flex items-center gap-sm px-md py-sm rounded text-on-surface-variant font-medium hover:bg-surface-container-highest hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-md">Docs</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded text-on-surface-variant font-medium hover:bg-surface-container-highest hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md">Support</span>
+</a>
+<div class="flex items-center gap-sm px-md pt-sm mt-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest border border-outline-variant flex items-center justify-center text-primary font-bold">AZ</div>
+<div class="overflow-hidden">
+<p class="font-body-sm text-body-sm font-bold truncate">Acme Prod</p>
+<p class="font-label-md text-[10px] text-on-surface-variant truncate">Premium Plan</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="bg-background flex items-center justify-between pl-[256px] pr-gutter w-full sticky top-0 h-14 z-40 border-b border-outline-variant">
+<div class="flex items-center gap-md flex-grow">
+<div class="relative max-w-md w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full bg-background border border-outline-variant rounded py-1.5 pl-10 pr-4 text-body-sm focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-all" placeholder="Search threads, metadata, or logs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<nav class="hidden md:flex gap-md">
+<a class="font-body-sm text-primary font-medium" href="#">Draft Review</a>
+<a class="font-body-sm text-on-surface-variant hover:text-primary transition-opacity" href="#">Execution Logs</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="p-1.5 rounded hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full border-2 border-background"></span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">history</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content: Split View -->
+<main class="pl-[240px] pt-0 h-[calc(100vh-56px)] overflow-hidden flex bg-background">
+<!-- Left Panel: Thread Context -->
+<section class="w-[450px] border-r border-outline-variant flex flex-col bg-background h-full">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold truncate">Billing access for acme-global-prod</h2>
+<div class="flex items-center gap-xs mt-0.5">
+<span class="font-label-md text-label-md text-on-surface-variant">From:</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Linda Zhao</span>
+<span class="text-on-surface-variant text-[10px]">•</span>
+<span class="font-label-md text-label-md text-on-surface-variant">2 hours ago</span>
+</div>
+</div>
+<div class="flex gap-xs">
+<button class="p-1 rounded border border-outline-variant hover:bg-surface-container-low"><span class="material-symbols-outlined text-sm">more_vert</span></button>
+</div>
+</div>
+<div class="flex-grow overflow-y-auto custom-scrollbar p-md space-y-lg">
+<!-- Message 1 -->
+<div class="flex gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex-shrink-0 flex items-center justify-center text-xs font-bold">LZ</div>
+<div class="space-y-sm">
+<div class="bg-surface-container-low p-md rounded border border-outline-variant">
+<p class="font-body-md text-on-surface">Hi Clearance Support,</p>
+<p class="font-body-md text-on-surface mt-sm">I'm currently unable to access the billing dashboard for the <code class="font-mono-sm text-primary bg-primary/10 px-1 rounded">acme-global-prod</code> environment. My team has an upcoming audit and we need to export the last 12 months of invoices immediately.</p>
+<p class="font-body-md text-on-surface mt-sm">Could you check if my permissions were inadvertently revoked during the migration last weekend? My user ID is <code class="font-mono-sm text-on-surface-variant">user_9921_lz</code>.</p>
+<p class="font-body-md text-on-surface mt-sm">Thanks,<br/>Linda</p>
+</div>
+<div class="flex items-center gap-sm">
+<span class="bg-error-container text-on-error-container px-sm py-xs rounded font-label-md text-[10px] uppercase font-bold flex items-center gap-xs">
+<span class="material-symbols-outlined !text-[12px]">priority_high</span> High Priority
+                            </span>
+<span class="bg-surface-container-highest text-on-surface-variant px-sm py-xs rounded font-label-md text-[10px] uppercase font-bold">Billing Issue</span>
+</div>
+</div>
+</div>
+<!-- Meta Context (Internal Only) -->
+<div class="mx-auto w-fit bg-surface-container-high/50 border border-outline-variant/50 rounded-full px-lg py-xs flex items-center gap-sm">
+<span class="material-symbols-outlined !text-[14px] text-primary">database</span>
+<span class="font-label-md text-[11px] text-on-surface-variant italic">System Log: Permission 'billing.view' not found for user_9921_lz in namespace acme-global-prod</span>
+</div>
+<!-- Previous message placeholder -->
+<div class="opacity-40 flex gap-md">
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex-shrink-0 flex items-center justify-center text-xs font-bold text-primary">C</div>
+<div class="bg-surface-container-low p-md rounded border border-outline-variant w-full">
+<p class="font-body-md">Thank you for contacting Clearance Support. We're looking into this...</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: AI Draft -->
+<section class="flex-grow flex flex-col bg-surface-container-low h-full overflow-hidden">
+<!-- Draft Header -->
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-md">
+<h3 class="font-headline-md text-headline-md font-bold">Proposed Draft</h3>
+<div class="flex items-center bg-background border border-outline-variant rounded px-sm py-1 gap-xs">
+<span class="material-symbols-outlined !text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-mono-sm text-[11px] text-primary">Generated by Qwen</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-xs px-sm py-1">
+<span class="material-symbols-outlined !text-[16px]">refresh</span> Regenerate
+                    </button>
+<div class="h-4 w-px bg-outline-variant"></div>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-xs px-sm py-1">
+<span class="material-symbols-outlined !text-[16px]">tune</span> Adjust Tone
+                    </button>
+</div>
+</div>
+<!-- Rich Text Area -->
+<div class="flex-grow p-xl overflow-y-auto custom-scrollbar flex flex-col items-center">
+<div class="max-w-2xl w-full bg-background border border-outline-variant rounded-lg p-xl min-h-[500px] text-editor-focus transition-all shadow-xl">
+<div class="mb-lg flex items-center justify-between text-on-surface-variant border-b border-outline-variant/30 pb-sm">
+<div class="flex gap-md">
+<span class="font-label-md">To: <strong>Linda Zhao</strong></span>
+<span class="font-label-md">Sub: <strong>Re: Billing access for acme-global-prod</strong></span>
+</div>
+<div class="flex gap-sm">
+<button class="material-symbols-outlined !text-[18px]">format_bold</button>
+<button class="material-symbols-outlined !text-[18px]">format_italic</button>
+<button class="material-symbols-outlined !text-[18px]">link</button>
+</div>
+</div>
+<div class="outline-none font-body-lg text-body-lg leading-relaxed text-on-surface" contenteditable="true">
+<p>Hi Linda,</p>
+<p class="mt-md">Thank you for bringing this to our attention. I’ve investigated the permissions for <code class="bg-surface-container-highest px-1 rounded font-mono-sm text-primary">acme-global-prod</code> and confirmed that your <code class="bg-surface-container-highest px-1 rounded font-mono-sm text-primary">billing.view</code> access was missed during last weekend’s migration sync.</p>
+<p class="mt-md">I have already staged a restoration of your administrative permissions. You should be able to access the dashboard and export your invoices for the audit within the next 5-10 minutes. Please let me know if you encounter any further issues with the export functionality.</p>
+<p class="mt-md">Apologies for the inconvenience during your audit preparation.</p>
+<p class="mt-md">Best regards,<br/>Clearance Support Autopilot</p>
+</div>
+</div>
+</div>
+<!-- Floating Footer Actions -->
+<div class="p-md border-t border-outline-variant bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<button class="bg-surface-container-highest border border-outline-variant text-on-surface px-md py-sm rounded flex items-center gap-sm hover:brightness-125 transition-all font-label-md">
+<span class="material-symbols-outlined">save</span>
+                        Save as template
+                    </button>
+<button class="text-on-surface-variant hover:text-on-surface px-md py-sm font-label-md transition-colors">
+                        Discard
+                    </button>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex flex-col items-end">
+<span class="font-label-md text-[10px] text-primary/70 uppercase font-bold tracking-widest">Confidence Score</span>
+<div class="flex gap-0.5 mt-1">
+<div class="w-4 h-1 rounded-full bg-primary"></div>
+<div class="w-4 h-1 rounded-full bg-primary"></div>
+<div class="w-4 h-1 rounded-full bg-primary"></div>
+<div class="w-4 h-1 rounded-full bg-primary"></div>
+<div class="w-4 h-1 rounded-full bg-primary/20"></div>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-bold px-xl py-md rounded-lg flex items-center gap-sm shadow-[0_0_20px_rgba(45,212,191,0.2)] hover:shadow-[0_0_25px_rgba(45,212,191,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all group">
+<span class="font-body-md">Approve &amp; send</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual Status Overlay -->
+<div class="fixed bottom-lg right-lg bg-surface-container-high border-4 border-primary/20 p-md rounded-xl shadow-2xl flex items-center gap-md z-[100] max-w-xs animate-in slide-in-from-bottom-4 duration-500">
+<div class="w-10 h-10 rounded bg-primary/10 border border-primary/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<p class="font-body-sm font-bold text-on-surface leading-tight">Draft Verified</p>
+<p class="font-label-md text-[11px] text-on-surface-variant mt-0.5">Aligned with Acme Global's security policy v2.4</p>
+</div>
+<button class="ml-auto text-on-surface-variant hover:text-on-surface p-1">
+<span class="material-symbols-outlined !text-lg">close</span>
+</button>
+</div>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('click', (e) => {
+                // Simple ripple effect or feedback logic could go here
+            });
+        });
+
+        // Auto-focus the editor if needed
+        const editor = document.querySelector('[contenteditable="true"]');
+        if (editor) {
+            // Optional: placeholder logic or styling focus
+        }
+    </script>
+</body></html>

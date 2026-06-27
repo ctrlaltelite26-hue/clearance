@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance | Your Inbox, on Autopilot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config from Design System -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                    "outline-variant": "#3c4a46",
+                    "surface-container-highest": "#253649",
+                    "surface-container-lowest": "#000f20",
+                    "secondary-fixed-dim": "#c1c7d2",
+                    "inverse-surface": "#d3e4fd",
+                    "inverse-primary": "#006b5f",
+                    "tertiary-fixed": "#ffdcc0",
+                    "error": "#ffb4ab",
+                    "secondary-container": "#464c55",
+                    "primary": "#2DD4BF",
+                    "on-primary": "#003731",
+                    "on-secondary": "#2b3139",
+                    "on-primary-fixed": "#00201c",
+                    "error-container": "#93000a",
+                    "surface": "#031426",
+                    "on-secondary-fixed": "#161c24",
+                    "surface-variant": "#253649",
+                    "on-secondary-container": "#b6bcc7",
+                    "secondary-fixed": "#dde3ee",
+                    "primary-container": "#2dd4bf",
+                    "background": "#031426",
+                    "on-tertiary-container": "#744000",
+                    "on-primary-container": "#00574d",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-low": "#0b1d2f",
+                    "surface-container": "#0f2133",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#3cddc7",
+                    "on-background": "#d3e4fd",
+                    "surface-container-high": "#1a2b3e",
+                    "tertiary-fixed-dim": "#ffb875",
+                    "outline": "#859490",
+                    "on-surface": "#d3e4fd",
+                    "tertiary": "#ffd1aa",
+                    "surface-bright": "#2a3a4e",
+                    "on-primary-fixed-variant": "#005047",
+                    "on-tertiary-fixed": "#2d1600",
+                    "on-tertiary": "#4b2800",
+                    "secondary": "#c1c7d2",
+                    "on-tertiary-fixed-variant": "#6b3b00",
+                    "primary-fixed": "#62fae3",
+                    "inverse-on-surface": "#213245",
+                    "surface-dim": "#031426",
+                    "on-secondary-fixed-variant": "#414750",
+                    "on-surface-variant": "#bacac5",
+                    "tertiary-container": "#ffac5a",
+                    "surface-tint": "#3cddc7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "unit": "8px",
+                    "margin-desktop": "24px",
+                    "xl": "32px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Geist", "Geist", "sans-serif"],
+                    "headline-lg": ["Geist", "Geist", "sans-serif"],
+                    "mono-sm": ["JetBrains Mono", "monospace"],
+                    "body-md": ["Geist", "Geist", "sans-serif"],
+                    "body-lg": ["Geist", "Geist", "sans-serif"],
+                    "label-md": ["Geist", "Geist", "sans-serif"],
+                    "headline-md": ["Geist", "Geist", "sans-serif"]
+            },
+            "fontSize": {
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0B0F14; /* surface-dim from config */
+            color: #E8EDF4; /* on-surface */
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 16px;
+        }
+        .terminal-glow {
+            box-shadow: 0 0 20px rgba(87, 241, 219, 0.05);
+        }
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            bottom: 0;
+            width: 1px;
+            background: #3c4a46;
+        }
+        .step-line-horizontal::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            right: 0;
+            height: 1px;
+            background: #3c4a46;
+        }
+        .mockup-glow {
+            box-shadow: 0 0 40px rgba(36, 48, 68, 0.5);
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-xl">
+<span class="text-headline-md font-headline-md font-bold text-on-surface">Clearance</span>
+<nav class="hidden md:flex gap-lg">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#">Features</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#">How it Works</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#">Pricing</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#">Docs</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant font-label-md hover:text-on-surface transition-colors">Sign In</button>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md font-bold active:opacity-80 active:scale-95 transition-all">Get Started</button>
+</div>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop mb-32">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+<div class="flex flex-col gap-lg">
+<div class="inline-flex items-center gap-sm bg-surface-container-high border border-outline-variant px-sm py-xs rounded w-fit">
+<span class="material-symbols-outlined text-primary text-[14px]">auto_awesome</span>
+<span class="font-mono-sm text-mono-sm text-primary uppercase tracking-widest">Autopilot v2.4 Active</span>
+</div>
+<h1 class="font-headline-lg text-[64px] leading-[1.1] font-extrabold text-on-surface tracking-tighter">
+                        Your inbox, <br/><span class="text-primary">on autopilot.</span>
+</h1>
+<p class="font-body-lg text-on-surface-variant max-w-xl">
+                        Clearance connects to your real support email addresses to analyze intent, draft responses, and escalate to humans only when it matters.
+                    </p>
+<div class="flex gap-md mt-sm">
+<button class="bg-primary-container text-on-primary-container px-xl py-md rounded font-label-md font-bold hover:brightness-110 transition-all">
+                            Start free
+                        </button>
+<button class="border border-outline-variant text-on-surface px-xl py-md rounded font-label-md hover:bg-surface-variant transition-all">
+                            See how it works
+                        </button>
+</div>
+<div class="mt-xl py-md border-t border-outline-variant">
+<p class="font-mono-sm text-mono-sm text-outline uppercase tracking-wider">Built on AgentMail · Powered by Qwen Cloud</p>
+</div>
+</div>
+<!-- Hero Graphic (Abstract UI) -->
+<div class="relative group">
+<div class="absolute inset-0 bg-primary/5 blur-[100px] rounded-full group-hover:bg-primary/10 transition-all duration-700"></div>
+<div class="relative bg-surface-container border border-outline-variant rounded-xl overflow-hidden p-md terminal-glow">
+<!-- Simulated AI Response Terminal -->
+<div class="flex items-center justify-between border-b border-outline-variant pb-md mb-md">
+<div class="flex gap-xs">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<span class="font-mono-sm text-mono-sm text-outline">thread_processor.py</span>
+</div>
+<div class="space-y-md font-mono-sm text-on-surface-variant">
+<div class="flex gap-md">
+<span class="text-outline">01</span>
+<span class="text-primary">&gt; Analyzing inbound: "I can't access my billing portal..."</span>
+</div>
+<div class="flex gap-md">
+<span class="text-outline">02</span>
+<span>[INTENT] Billing Access Denied</span>
+</div>
+<div class="flex gap-md">
+<span class="text-outline">03</span>
+<span>[SENTIMENT] Frustrated / Urgent</span>
+</div>
+<div class="flex gap-md">
+<span class="text-outline">04</span>
+<span class="text-primary-fixed-dim">&gt; Drafting response using handled_protocols.kb</span>
+</div>
+<div class="flex gap-md">
+<span class="text-outline">05</span>
+<span class="bg-primary/10 text-primary px-sm border border-primary/20">READY FOR HUMAN REVIEW</span>
+</div>
+</div>
+<div class="mt-xl pt-md border-t border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</div>
+<div class="h-2 w-32 bg-surface-container-high rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- NEW Wide Feature Section -->
+<section class="bg-[#0B0F14] py-32 border-y border-outline-variant">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-xl items-center">
+<!-- Left Column: How it works detail -->
+<div class="flex flex-col gap-xl">
+<div>
+<h2 class="text-headline-lg text-[40px] leading-tight text-on-surface mb-md">How it works</h2>
+<p class="font-body-md text-on-surface-variant max-w-md">Our orchestration engine manages the full lifecycle of a support ticket, from initial ingestion to final human approval.</p>
+</div>
+<div class="flex flex-col gap-lg">
+<!-- Step 1 -->
+<div class="flex gap-md">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 flex items-center justify-center text-[#2DD4BF] font-mono-sm text-sm">1</div>
+<div>
+<h3 class="text-headline-md text-on-surface mb-xs">Webhook</h3>
+<p class="text-body-sm text-on-surface-variant">Connect your support alias. We ingest tickets via secure webhooks and IMAP/SMTP protocols instantly.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex gap-md">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 flex items-center justify-center text-[#2DD4BF] font-mono-sm text-sm">2</div>
+<div>
+<h3 class="text-headline-md text-on-surface mb-xs">Analyze</h3>
+<p class="text-body-sm text-on-surface-variant">AI interprets intent and sentiment. Every message is parsed for urgency, technical depth, and customer mood.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex gap-md">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 flex items-center justify-center text-[#2DD4BF] font-mono-sm text-sm">3</div>
+<div>
+<h3 class="text-headline-md text-on-surface mb-xs">Policy</h3>
+<p class="text-body-sm text-on-surface-variant">Cross-reference with your support docs. The system pulls relevant context from your knowledge base to ensure accuracy.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex gap-md">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#2DD4BF]/10 border border-[#2DD4BF]/30 flex items-center justify-center text-[#2DD4BF] font-mono-sm text-sm">4</div>
+<div>
+<h3 class="text-headline-md text-on-surface mb-xs">Approve</h3>
+<p class="text-body-sm text-on-surface-variant">Human-in-the-loop final review. Agents review the drafted response, making tweaks where needed before sending.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Integrated Mockup -->
+<div class="relative mockup-glow rounded-xl border border-[#243044] overflow-hidden bg-surface-container">
+<div class="flex h-[600px]">
+<!-- Inbox View (SCREEN_11) -->
+<div class="flex-grow overflow-hidden border-r border-outline-variant">
+<img alt="Inbox View" class="w-full h-full object-cover object-top opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVkMfNeDSSjPTOb7O5sOQSRd-zmc_gXeo4tVGDKl1aQ8haMLhMdbC_tA14UQVFS9mMMYS0Or-baTtk_MqBLgpUYtNrwIuLPsIANay3q9Q-pTLicTXMp1n4dAqeLLv9QSldd3FWUtCFQD4VhaUGhPcxZqVWhOIUkgVMrcRIiM4oPplNepX_kz49Yste4MbZt9S7Xv3i5EQObNhAQRsy-xAfAmHc1G3phdnA3m-mCICfLfMs-rUQ6xTwNPT6Sbvy_aWb7MQN1u8u8R3A"/>
+</div>
+<!-- Agent Sidebar (SCREEN_16) -->
+<div class="w-[320px] flex-shrink-0 bg-surface-container-high overflow-hidden">
+<img alt="Agent Sidebar" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeNheXk99mi4Pk4l0eJo990JCkKzoel90XJ_z46SlXNmBWjoRLSwdGf_uXPstswbKmMwqxPdAfqHI7APMm_EAMjJjQYChWUhTmBTwpXADWXoCRq4Ko5Hw8Y7K_8GAz4zN5O3bJrAziCcs7h2B-ON98eYEJgxGBaU1fn7v6ItOnE0bH2M0eGIouhR239ZgbQUmqlM__qs4Nl006pGQSAxz9wOr4bZ1Rk289epsA9WAV8htrHU5y5LeE3SEGOchFX3ujk4XJc35Gi6mM"/>
+</div>
+</div>
+<!-- UI Overlay for cohesion -->
+<div class="absolute inset-0 pointer-events-none border border-white/5 rounded-xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Section (Three Cards) -->
+<section class="bg-surface-container-low py-32 border-b border-outline-variant">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<div class="mb-xl text-center">
+<h2 class="font-headline-lg text-[40px] text-on-surface mb-md">Designed for high-velocity support teams.</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Focus on strategic problem-solving while Clearance handles the repetitive triage and drafting at scale.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mt-xl">
+<!-- Feature Card 1 -->
+<div class="bg-surface-container border border-outline-variant p-xl flex flex-col gap-md group hover:border-primary transition-colors duration-300">
+<div class="w-12 h-12 bg-surface-container-high border border-outline-variant flex items-center justify-center rounded group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<h3 class="font-headline-md text-on-surface">Real inboxes</h3>
+<p class="font-body-md text-on-surface-variant">Create dedicated support addresses on AgentMail. Optional custom domain for support@yourcompany.com.</p>
+</div>
+<!-- Feature Card 2 -->
+<div class="bg-surface-container border border-outline-variant p-xl flex flex-col gap-md group hover:border-primary transition-colors duration-300">
+<div class="w-12 h-12 bg-surface-container-high border border-outline-variant flex items-center justify-center rounded group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h3 class="font-headline-md text-on-surface">Smart triage</h3>
+<p class="font-body-md text-on-surface-variant">AI classifies every thread by sentiment, urgency, and technical depth. High-priority issues jump to the front of the line.</p>
+</div>
+<!-- Feature Card 3 -->
+<div class="bg-surface-container border border-outline-variant p-xl flex flex-col gap-md group hover:border-primary transition-colors duration-300">
+<div class="w-12 h-12 bg-surface-container-high border border-outline-variant flex items-center justify-center rounded group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h3 class="font-headline-md text-on-surface">Human when it counts</h3>
+<p class="font-body-md text-on-surface-variant">Autopilot handles the routine; humans approve the complex. Maintain 100% control over sensitive customer interactions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works Section (Steps horizontal) -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-32">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-xl">
+<!-- Step 1 -->
+<div class="relative flex flex-col gap-md md:step-line-horizontal lg:last:step-line-horizontal-none">
+<div class="w-10 h-10 rounded-full border border-primary text-primary flex items-center justify-center font-mono-sm bg-surface z-10">01</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-headline-md text-on-surface">Connect your support aliases</h4>
+<p class="font-body-sm text-on-surface-variant">Create a real inbox via AgentMail in seconds — or connect your custom domain.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col gap-md md:step-line-horizontal lg:last:step-line-horizontal-none">
+<div class="w-10 h-10 rounded-full border border-outline-variant text-outline flex items-center justify-center font-mono-sm bg-surface z-10">02</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-headline-md text-on-surface">Define your handling protocols</h4>
+<p class="font-body-sm text-on-surface-variant">Upload your knowledge base or documentation to teach the AI how your team solves problems.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col gap-md md:step-line-horizontal lg:last:step-line-horizontal-none">
+<div class="w-10 h-10 rounded-full border border-outline-variant text-outline flex items-center justify-center font-mono-sm bg-surface z-10">03</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-headline-md text-on-surface">Autopilot drafts and labels</h4>
+<p class="font-body-sm text-on-surface-variant">Clearance works in the background, identifying intent and drafting perfect contextual replies.</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col gap-md">
+<div class="w-10 h-10 rounded-full border border-outline-variant text-outline flex items-center justify-center font-mono-sm bg-surface z-10">04</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-headline-md text-on-surface">Human-in-the-loop review</h4>
+<p class="font-body-sm text-on-surface-variant">Your team reviews, edits, or approves drafts. The AI learns from every human correction in real-time.</p>
+</div>
+</div>
+</div>
+<!-- Contextual Graphic -->
+<div class="mt-32 p-xl bg-surface-container border border-outline-variant rounded-xl flex items-center justify-center overflow-hidden">
+<div class="w-full max-w-4xl flex flex-col gap-md">
+<div class="flex justify-between items-center px-md py-sm bg-surface-container-high border-l-4 border-primary">
+<div class="flex flex-col">
+<span class="font-label-md text-primary uppercase">Status: Pending Approval</span>
+<span class="font-body-md text-on-surface">Draft reply for <strong>#4421 - Password Reset</strong></span>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-xs bg-outline-variant/20 border border-outline-variant rounded font-label-md text-on-surface">Edit</button>
+<button class="px-md py-xs bg-primary text-on-primary rounded font-label-md font-bold">Approve &amp; Send</button>
+</div>
+</div>
+<div class="bg-surface-container-low p-md rounded border border-outline-variant text-on-surface-variant font-body-md">
+                        Hi Alex, I’ve checked your account and it seems your access was locked due to multiple login attempts from an unrecognized IP. I’ve initiated a secure reset link...
+                    </div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-32 text-center">
+<div class="bg-primary/5 border border-primary/20 rounded-2xl p-xl flex flex-col items-center gap-lg">
+<h2 class="font-headline-lg text-[48px] text-on-surface max-w-3xl">Take the friction out of your support desk today.</h2>
+<p class="font-body-lg text-on-surface-variant max-w-xl">Built for support teams who want real inboxes, grounded AI drafts, and human approval when it matters.</p>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-primary-container text-on-primary-container px-xl py-md rounded-lg font-headline-md font-bold hover:scale-105 active:scale-95 transition-all">
+                        Start your 14-day trial
+                    </button>
+<button class="text-on-surface px-xl py-md rounded-lg font-headline-md border border-outline-variant hover:bg-surface-variant transition-all">
+                        Talk to an expert
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-xl px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-low border-t border-outline-variant mt-32">
+<div class="flex flex-col gap-sm items-center md:items-start">
+<span class="text-headline-md font-headline-md font-bold text-on-surface">Clearance</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 Clearance AI. All rights reserved.</p>
+</div>
+<div class="flex gap-lg flex-wrap justify-center">
+<a class="text-on-surface-variant font-label-md hover:text-on-surface transition-colors focus:underline" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface transition-colors focus:underline" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface transition-colors focus:underline" href="#">Security</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface transition-colors focus:underline" href="#">Status</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface transition-colors focus:underline" href="#">Twitter</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface transition-colors focus:underline" href="#">LinkedIn</a>
+</div>
+</footer>
+<script>
+        // Micro-interactions for terminal effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const lines = document.querySelectorAll('.space-y-md .flex');
+            lines.forEach((line, index) => {
+                line.style.opacity = '0';
+                line.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    line.style.transition = 'all 0.5s ease-out';
+                    line.style.opacity = '1';
+                    line.style.transform = 'translateY(0)';
+                }, index * 400);
+            });
+        });
+    </script>
+</body></html>

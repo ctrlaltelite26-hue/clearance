@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance AI - Approval Panel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+
+<!-- Tailwind Config defined in prompt -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                "on-primary-fixed": "#00201c",
+                "on-tertiary-fixed": "#2d1600",
+                "primary-container": "#2dd4bf",
+                "surface-container-high": "#1a2b3e",
+                "inverse-primary": "#006b5f",
+                "background": "#031426",
+                "outline": "#859490",
+                "secondary-container": "#464c55",
+                "inverse-surface": "#d3e4fd",
+                "surface-bright": "#2a3a4e",
+                "on-primary-container": "#00574d",
+                "outline-variant": "#3c4a46",
+                "on-primary": "#003731",
+                "on-secondary-fixed": "#161c24",
+                "on-secondary-container": "#b6bcc7",
+                "tertiary-fixed-dim": "#ffb875",
+                "tertiary-fixed": "#ffdcc0",
+                "on-tertiary": "#4b2800",
+                "on-surface": "#d3e4fd",
+                "error-container": "#93000a",
+                "secondary-fixed-dim": "#c1c7d2",
+                "secondary": "#c1c7d2",
+                "on-error": "#690005",
+                "on-error-container": "#ffdad6",
+                "error": "#ffb4ab",
+                "on-tertiary-container": "#744000",
+                "on-primary-fixed-variant": "#005047",
+                "on-background": "#d3e4fd",
+                "on-tertiary-fixed-variant": "#6b3b00",
+                "surface-tint": "#3cddc7",
+                "primary-fixed-dim": "#3cddc7",
+                "surface-variant": "#253649",
+                "surface-container-lowest": "#000f20",
+                "tertiary": "#ffd1aa",
+                "primary-fixed": "#62fae3",
+                "primary": "#2DD4BF",
+                "on-secondary": "#2b3139",
+                "on-surface-variant": "#bacac5",
+                "inverse-on-surface": "#213245",
+                "tertiary-container": "#ffac5a",
+                "surface-container-highest": "#253649",
+                "surface-container-low": "#0b1d2f",
+                "surface-container": "#0f2133",
+                "surface": "#031426",
+                "surface-dim": "#031426",
+                "secondary-fixed": "#dde3ee",
+                "on-secondary-fixed-variant": "#414750"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "lg": "24px",
+                "sm": "8px",
+                "margin-mobile": "16px",
+                "xl": "32px",
+                "unit": "8px",
+                "gutter": "16px",
+                "md": "16px",
+                "margin-desktop": "24px",
+                "xs": "4px"
+            },
+            "fontFamily": {
+                "body-lg": ["Geist"],
+                "label-md": ["Geist"],
+                "headline-md": ["Geist"],
+                "headline-lg": ["Geist"],
+                "body-md": ["Geist"],
+                "body-sm": ["Geist"],
+                "mono-sm": ["JetBrains Mono"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: #0B0F14; color: #E8EDF4; overflow: hidden; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .thread-row { height: 52px; border-bottom: 1px solid #243044; }
+        .thread-row:hover { background-color: #1C2530; cursor: pointer; }
+        .unread-indicator { width: 2px; height: 100%; background-color: #2DD4BF; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #3c4a46; }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary/30">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Side Navigation (Shared Component Integration) -->
+<aside class="w-[240px] h-screen border-r border-outline-variant bg-surface-container-low flex flex-col py-4">
+<div class="px-6 mb-8">
+<div class="font-headline-md text-headline-md font-bold text-primary">Clearance</div>
+<div class="font-body-sm text-body-sm opacity-60">AI Autopilot</div>
+</div>
+<button class="mx-4 mb-6 py-2 px-4 bg-primary-container text-on-primary-container font-medium rounded-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span>New Message</span>
+</button>
+<nav class="flex-1 space-y-1 px-2">
+<div class="flex items-center gap-3 px-4 py-2 bg-surface-container-highest text-primary font-medium rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="inbox">inbox</span>
+<span>Inbox</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person_check">person_check</span>
+<span>Assigned</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="drafts">drafts</span>
+<span>Drafts</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+<span>Completed</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</div>
+</nav>
+<div class="px-2 pt-4 border-t border-outline-variant space-y-1">
+<div class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-body-sm">Help</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+<span class="text-body-sm">Status</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area (Dimmed Inbox View) -->
+<main class="flex-1 flex flex-col relative bg-background">
+<!-- Top App Bar -->
+<header class="w-full h-14 border-b border-outline-variant bg-surface-dim flex justify-between items-center px-margin-desktop">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-10 pr-4 py-1.5 font-body-sm focus:outline-none focus:ring-1 focus:ring-primary/50" placeholder="Search threads..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined hover:text-primary cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer" data-icon="history">history</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Profile" data-alt="Close up portrait of a professional male support lead with short dark hair and a focused expression. The lighting is dramatic and cool-toned, reflecting a high-tech corporate office environment. Shallow depth of field with a clean, dark blue blurred background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbE0c6JZ1f7f3kqoKRqNjjB7IpOwuCot6PPa8HAoxvh5VNs1zYL9KsbLW9WOFPnRLay1ScSxXJgo8YCks_h1fEtPgl0O61HnE3AicEzSdV4hfp4H2yrZltSa1NK2xREhihXUljN6a4Y5b4-qC7GbvYkZayZCNYfT2Nm8aZsNyiRHQ22e2mJ-RUrP1wjAOElusrx-GbF8hZbHPNjSFG2PUNVg2-Vm6O27CILkoTnfljmXbtBzyKRZ4rXnOTqNALI67zi3drXZW-0xve"/>
+</div>
+</div>
+</header>
+<!-- Inbox Threads (Simulated) -->
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<div class="thread-row flex items-center px-4 relative">
+<div class="unread-indicator absolute left-0 top-0"></div>
+<div class="w-6 h-6 rounded bg-primary-container/20 flex items-center justify-center mr-4">
+<span class="material-symbols-outlined text-primary text-[16px]">account_balance</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-0.5">
+<span class="font-semibold text-primary">Billing Request: Acme Corp</span>
+<span class="text-[11px] text-on-surface-variant">2m ago</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">I need access to the billing dashboard to update our card...</p>
+</div>
+</div>
+<!-- Repeat threads -->
+<script>
+                    const container = document.querySelector('.custom-scrollbar');
+                    const threadLabels = [
+                        {title: "SSO Config Update", sender: "Internal System", text: "Identity provider certificates are expiring in 48h."},
+                        {title: "API Rate Limit Breach", sender: "Alert", text: "Customer ID 9212 has exceeded monthly quota."},
+                        {title: "Refund Request #882", sender: "Sarah Jenkins", text: "The client was overcharged for the premium tier."},
+                        {title: "New Seat Provisioning", sender: "HR Automator", text: "Provisioning 4 new seats for engineering team."},
+                        {title: "Feature Flag Activation", sender: "Release Manager", text: "Enabling 'Dark Mode v2' for beta group 1."},
+                    ];
+                    for(let i=0; i<15; i++) {
+                        const item = threadLabels[i % threadLabels.length];
+                        container.innerHTML += `
+                            <div class="thread-row flex items-center px-4">
+                                <div class="w-6 h-6 rounded bg-surface-variant flex items-center justify-center mr-4">
+                                    <span class="material-symbols-outlined text-on-surface-variant text-[16px]">mail</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center mb-0.5">
+                                        <span class="font-medium text-on-surface">${item.title}</span>
+                                        <span class="text-[11px] text-on-surface-variant">${i+3}m ago</span>
+                                    </div>
+                                    <p class="text-xs text-on-surface-variant truncate">${item.text}</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                </script>
+</div>
+<!-- Dimming Overlay -->
+<div class="absolute inset-0 bg-background/60 backdrop-blur-[1px] z-10 transition-opacity duration-300"></div>
+<!-- Slide-over Panel -->
+<div class="absolute top-0 right-0 w-[480px] h-screen bg-[#0B0F14] border-l border-[#243044] shadow-2xl z-20 flex flex-col transform translate-x-0 transition-transform duration-300 ease-out" id="approvalPanel">
+<!-- Panel Header -->
+<div class="h-14 flex items-center justify-between px-6 border-b border-[#243044]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="lock_open">lock_open</span>
+<h2 class="font-headline-md text-headline-md font-bold tracking-tight">Approval Request</h2>
+</div>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-high rounded transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-8">
+<!-- Customer Excerpt -->
+<section>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-3">Customer Excerpt</h3>
+<div class="bg-[#141A22] border border-[#243044] p-4 rounded-lg relative">
+<span class="material-symbols-outlined absolute -top-3 -left-2 text-[#243044] text-[40px] select-none opacity-40">format_quote</span>
+<p class="font-body-md text-on-surface leading-relaxed relative z-10">
+                                "Hey, I'm the new head of operations. I need full billing access to the Acme Corp dashboard. We need to update our payment method before the end of the quarter. Can you grant me a Billing Admin seat?"
+                            </p>
+<div class="mt-4 flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img alt="User" data-alt="Professional headshot of a business woman with a serious yet approachable expression. She is wearing a dark navy blazer, and the lighting is crisp and natural. High-contrast, dark-mode friendly palette with deep navy and charcoal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0jRDaXN9auS23QGMuFsOGQi6Gz2qB7pzwDme5qV0rQ5w4px5CW0UP8eL5ifVxocU2yAln9QSZvxqIVp8Hp1-speBRnJQhme13BfkotAxqO-pZg5D1cpfG4vuhO-JQw4OV0zHom4b1aAaL1PA8CYB1GNG2UL3O6zK0kqQubOBXkXspO7o8_Fuf6G5OX13u6b-MvyYdGmLOTQL7f6Bs16LE4OposL6CuZsON6AdntzpQ28lFhsnZZsi8-4F308qkedXNG31Pysx1PEY"/>
+</div>
+<span class="text-xs font-medium text-on-primary-fixed-variant">Linda Zhao</span>
+<span class="text-[10px] text-on-surface-variant bg-surface-container-high px-1.5 py-0.5 rounded">Ops Lead</span>
+</div>
+</div>
+</section>
+<!-- Agent Interpretation -->
+<section>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-3">Agent Interpretation</h3>
+<div class="flex gap-4">
+<div class="w-1 bg-primary rounded-full"></div>
+<div class="flex-1 space-y-2">
+<p class="font-body-md text-on-surface">
+                                    User verified via SSO (Okta) at 14:22 UTC. Requesting standard billing seat for <span class="text-primary-container">Acme-Global-Prod</span> workspace. 
+                                </p>
+<p class="text-xs text-on-surface-variant">
+                                    AI analysis confirms user's identity matches HR record for 'Head of Operations'. No security anomalies detected.
+                                </p>
+</div>
+</div>
+</section>
+<!-- Proposed Details -->
+<section>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-3">Proposed Details</h3>
+<div class="bg-surface-container-lowest border border-[#243044] rounded overflow-hidden">
+<div class="grid grid-cols-3 divide-x divide-[#243044] border-b border-[#243044] font-mono-sm text-mono-sm">
+<div class="p-3 text-on-surface-variant bg-[#141A22]">Property</div>
+<div class="p-3 text-on-surface col-span-2">Value</div>
+</div>
+<div class="grid grid-cols-3 divide-x divide-[#243044] font-mono-sm text-mono-sm">
+<div class="p-3 text-on-surface-variant bg-[#141A22]">Role</div>
+<div class="p-3 text-primary-container">Billing Admin</div>
+</div>
+<div class="grid grid-cols-3 divide-x divide-[#243044] border-t border-[#243044] font-mono-sm text-mono-sm">
+<div class="p-3 text-on-surface-variant bg-[#141A22]">Seat ID</div>
+<div class="p-3 text-on-surface">ACME-B-99</div>
+</div>
+<div class="grid grid-cols-3 divide-x divide-[#243044] border-t border-[#243044] font-mono-sm text-mono-sm">
+<div class="p-3 text-on-surface-variant bg-[#141A22]">Auth Level</div>
+<div class="p-3 text-on-surface">Level 4 (Elevated)</div>
+</div>
+<div class="grid grid-cols-3 divide-x divide-[#243044] border-t border-[#243044] font-mono-sm text-mono-sm">
+<div class="p-3 text-on-surface-variant bg-[#141A22]">Workspace</div>
+<div class="p-3 text-on-surface">acme-global-2024</div>
+</div>
+</div>
+</section>
+<!-- Comment Field -->
+<section>
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-3">Reviewer Comments</h3>
+<textarea class="w-full h-24 bg-[#0B0F14] border border-[#243044] rounded-lg p-3 font-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary/50 placeholder:text-on-surface-variant/40 resize-none" placeholder="Add reasoning for approval/rejection..."></textarea>
+</section>
+</div>
+<!-- Fixed Footer Actions -->
+<div class="p-6 border-t border-[#243044] flex gap-4 bg-[#0B0F14]">
+<button class="flex-1 py-2.5 px-4 border border-[#EF4444] text-[#EF4444] rounded font-label-md text-label-md hover:bg-[#EF4444]/10 transition-colors active:scale-[0.98]">
+                        Reject
+                    </button>
+<button class="flex-[1.5] py-2.5 px-4 bg-[#2DD4BF] text-[#0B0F14] rounded font-label-md text-label-md font-bold hover:bg-[#2DD4BF]/90 transition-colors active:scale-[0.98]">
+                        Approve &amp; Execute
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interaction for close button -->
+<script>
+        const closeBtn = document.querySelector('#approvalPanel button');
+        const panel = document.getElementById('approvalPanel');
+        const overlay = document.querySelector('.absolute.inset-0.bg-background\\/60');
+
+        closeBtn.addEventListener('click', () => {
+            panel.style.transform = 'translateX(100%)';
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+        });
+
+        // Simple button active state visual
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.opacity = '0.8';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.opacity = '1';
+            });
+        });
+    </script>
+</body></html>

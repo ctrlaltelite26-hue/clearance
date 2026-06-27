@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clearance | Policy &amp; Governance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                    "brand-bg": "#0B0F14",
+                    "brand-surface": "#141A22",
+                    "brand-border": "#243044",
+                    "brand-text": "#E8EDF4",
+                    "brand-muted": "#8B9CB3",
+                    "brand-teal": "#2DD4BF",
+                    "brand-warning": "#F59E0B",
+                    "brand-danger": "#EF4444",
+                    "brand-success": "#22C55E",
+                        "secondary-fixed": "#dde3ee",
+                        "on-tertiary": "#4b2800",
+                        "secondary-fixed-dim": "#c1c7d2",
+                        "surface-container-lowest": "#000f20",
+                        "on-secondary-container": "#b6bcc7",
+                        "surface-dim": "#031426",
+                        "tertiary-fixed-dim": "#ffb875",
+                        "on-primary-container": "#00574d",
+                        "on-primary-fixed": "#00201c",
+                        "surface-bright": "#2a3a4e",
+                        "on-secondary": "#2b3139",
+                        "tertiary-fixed": "#ffdcc0",
+                        "on-primary": "#003731",
+                        "error-container": "#93000a",
+                        "outline": "#859490",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#0b1d2f",
+                        "primary-container": "#2dd4bf",
+                        "tertiary-container": "#ffac5a",
+                        "on-tertiary-fixed": "#2d1600",
+                        "inverse-on-surface": "#213245",
+                        "on-secondary-fixed-variant": "#414750",
+                        "surface-container": "#0f2133",
+                        "primary-fixed": "#62fae3",
+                        "on-surface": "#d3e4fd",
+                        "on-secondary-fixed": "#161c24",
+                        "inverse-primary": "#006b5f",
+                        "surface-container-high": "#1a2b3e",
+                        "primary": "#2DD4BF",
+                        "tertiary": "#ffd1aa",
+                        "on-primary-fixed-variant": "#005047",
+                        "surface-container-highest": "#253649",
+                        "on-error": "#690005",
+                        "surface-tint": "#3cddc7",
+                        "surface": "#031426",
+                        "secondary-container": "#464c55",
+                        "on-background": "#d3e4fd",
+                        "on-surface-variant": "#bacac5",
+                        "secondary": "#c1c7d2",
+                        "inverse-surface": "#d3e4fd",
+                        "primary-fixed-dim": "#3cddc7",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#3c4a46",
+                        "on-tertiary-container": "#744000",
+                        "background": "#031426",
+                        "on-tertiary-fixed-variant": "#6b3b00",
+                        "surface-variant": "#253649"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "unit": "8px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "mono-sm": ["JetBrains Mono"],
+                        "label-md": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "mono-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0B0F14;
+            color: #E8EDF4;
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0b1d2f;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #243044;
+        }
+        .toggle-switch {
+            width: 32px;
+            height: 18px;
+            background-color: #3c4a46;
+            border-radius: 9px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .toggle-switch.active {
+            background-color: #2dd4bf;
+        }
+        .toggle-circle {
+            width: 14px;
+            height: 14px;
+            background-color: #E8EDF4;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s;
+        }
+        .toggle-switch.active .toggle-circle {
+            transform: translateX(14px);
+            background-color: #0B0F14;
+        }
+        .material-symbols-outlined {
+            font-size: 18px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen bg-background overflow-hidden">
+<!-- SideNavBar (Authority: Shared Components JSON) -->
+<aside class="fixed left-0 top-0 h-full w-[240px] border-r border-outline-variant bg-surface flex flex-col py-lg px-md z-50">
+<div class="flex items-center gap-sm mb-xl">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-extrabold text-on-surface leading-none">Clearance</h1>
+<p class="text-label-md font-label-md text-on-surface-variant opacity-60">AI Autopilot</p>
+</div>
+</div>
+<nav class="flex-1 space-y-xs overflow-y-auto custom-scrollbar">
+<!-- Nav Item: Dashboard -->
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 ease-in-out hover:bg-surface-container hover:text-on-surface text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<!-- Nav Item: Inbox -->
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 ease-in-out hover:bg-surface-container hover:text-on-surface text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="inbox">inbox</span>
+<span class="text-label-md font-label-md">Inbox</span>
+</a>
+<!-- Nav Item: Analytics -->
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 ease-in-out hover:bg-surface-container hover:text-on-surface text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<!-- Nav Item: Policies (ACTIVE) -->
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 ease-in-out text-primary bg-surface-container-high font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="policy">policy</span>
+<span class="text-label-md font-label-md">Policies</span>
+</a>
+<!-- Nav Item: Team -->
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 ease-in-out hover:bg-surface-container hover:text-on-surface text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Team</span>
+</a>
+<!-- Nav Item: Settings -->
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 ease-in-out hover:bg-surface-container hover:text-on-surface text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</nav>
+<button class="mt-lg mb-xl w-full py-sm bg-surface-container-highest border border-outline-variant text-primary text-label-md font-label-md rounded flex items-center justify-center gap-xs hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined">add</span>
+            New Policy
+        </button>
+<div class="border-t border-outline-variant pt-lg space-y-xs">
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="text-label-md font-label-md">Help</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="rss_feed">rss_feed</span>
+<span class="text-label-md font-label-md">Status</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-[240px] flex-1 flex flex-col h-screen relative bg-background">
+<!-- TopAppBar (Authority: Shared Components JSON) -->
+<header class="flex justify-between items-center h-14 px-margin-desktop border-b border-outline-variant bg-surface sticky top-0 z-40">
+<div class="flex items-center gap-md">
+<nav class="flex items-center gap-sm text-body-sm font-body-sm text-on-surface-variant">
+<span>Settings</span>
+<span class="material-symbols-outlined text-[12px] opacity-40">chevron_right</span>
+<span class="text-primary">Policies</span>
+</nav>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant opacity-60">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded px-sm py-xs pl-10 text-body-sm w-64 focus:outline-none focus:border-primary transition-all" placeholder="Search policies..." type="text"/>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="settings">settings</button>
+<div class="w-8 h-8 rounded bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrNVN57dfddEMInKQNBhM0ZYdWM-k4TedPsO6Y4xXAqkqbL2HuwKsssWzvv0SGSdu3qPKJkPvnx7F-Bs9KbP9vXKHe7RLc45HDagljANLteC5-xqR6Vg4qahEbEP6kOD0h2kFePNwMT0lADEH6qSSe7GjIic1EH4woaS4GEZ0lbtIfbmLUekGp_pIEbwbCd8L5AYv347p2IRWfMPpeKQlJjDkkfi-wDg5gipjFBVr-MUEFVmV2W3CjmY2lOm7txbY1Jtja74HoO6DP"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 overflow-y-auto p-margin-desktop pb-32 custom-scrollbar">
+<div class="max-w-5xl mx-auto space-y-xl">
+<!-- Hero Title -->
+<div class="flex flex-col gap-xs">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Policy &amp; Governance</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">Define how the AI Autopilot handles sensitive communications and when manual intervention is mandatory.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-start">
+<!-- Section 1: Approval Rules -->
+<section class="space-y-md">
+<div class="flex items-center gap-sm border-b border-outline-variant pb-sm mb-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h3 class="text-headline-md font-headline-md text-on-surface">Approval Rules</h3>
+</div>
+<div class="space-y-sm">
+<!-- Card: Sentiment -->
+<div class="p-md bg-surface border border-outline-variant rounded-lg flex items-center justify-between group hover:border-outline transition-colors">
+<div class="flex flex-col gap-xs">
+<span class="text-label-md font-label-md text-on-surface">Require approval for sentiment &gt; 0.8</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Flag negative emails for manual review.</span>
+</div>
+<div class="toggle-switch active" onclick="this.classList.toggle('active')">
+<div class="toggle-circle"></div>
+</div>
+</div>
+<!-- Card: Billing -->
+<div class="p-md bg-surface border border-outline-variant rounded-lg flex items-center justify-between group hover:border-outline transition-colors">
+<div class="flex flex-col gap-xs">
+<span class="text-label-md font-label-md text-on-surface">Auto-draft all billing queries</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Never auto-send replies containing invoice data.</span>
+</div>
+<div class="toggle-switch active" onclick="this.classList.toggle('active')">
+<div class="toggle-circle"></div>
+</div>
+</div>
+<!-- Card: FAQs -->
+<div class="p-md bg-surface border border-outline-variant rounded-lg flex items-center justify-between group hover:border-outline transition-colors">
+<div class="flex flex-col gap-xs">
+<span class="text-label-md font-label-md text-on-surface opacity-60">Direct reply to known FAQs</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Allow instant responses for standard questions.</span>
+</div>
+<div class="toggle-switch" onclick="this.classList.toggle('active')">
+<div class="toggle-circle"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Governance -->
+<section class="space-y-md">
+<div class="flex items-center gap-sm border-b border-outline-variant pb-sm mb-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<h3 class="text-headline-md font-headline-md text-on-surface">Governance</h3>
+</div>
+<div class="bg-surface border border-outline-variant rounded-lg p-lg space-y-lg">
+<!-- Blocked Roles -->
+<div class="space-y-md">
+<label class="text-label-md font-label-md text-on-surface-variant block">Blocked Roles</label>
+<div class="flex flex-wrap gap-sm">
+<span class="bg-surface-container-highest text-on-surface px-sm py-1 rounded text-label-md flex items-center gap-xs border border-outline-variant">
+                                        CEO <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</span>
+<span class="bg-surface-container-highest text-on-surface px-sm py-1 rounded text-label-md flex items-center gap-xs border border-outline-variant">
+                                        Legal Counsel <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</span>
+<span class="bg-surface-container-highest text-on-surface px-sm py-1 rounded text-label-md flex items-center gap-xs border border-outline-variant">
+                                        Head of Security <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</span>
+<button class="text-primary text-label-md px-sm py-1 border border-dashed border-primary/40 rounded flex items-center gap-xs hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined text-[14px]">add</span> Add role
+                                    </button>
+</div>
+</div>
+<!-- Confidence Threshold -->
+<div class="space-y-md pt-md">
+<div class="flex justify-between items-center">
+<label class="text-label-md font-label-md text-on-surface-variant">Confidence Threshold</label>
+<span class="font-mono-sm text-mono-sm text-primary bg-primary/10 px-sm py-xs rounded">90%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="0" type="range" value="90"/>
+<p class="text-body-sm font-body-sm text-on-surface-variant opacity-60">The minimum AI certainty score required to propose a draft without human intervention.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Section 3: Action Permissions -->
+<section class="max-w-2xl">
+<div class="flex items-center gap-sm border-b border-outline-variant pb-sm mb-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+<h3 class="text-headline-md font-headline-md text-on-surface">Action Permissions</h3>
+</div>
+<div class="bg-surface border border-outline-variant rounded-lg divide-y divide-outline-variant">
+<label class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-md font-body-md text-on-surface">Allow drafting responses</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-40">info</span>
+</label>
+<label class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-md font-body-md text-on-surface">Allow auto-labeling</span>
+</div>
+</label>
+<label class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-md font-body-md text-on-surface">Allow CRM data lookups</span>
+</div>
+<span class="text-label-md font-label-md text-on-secondary-fixed-variant bg-secondary-fixed/10 px-xs rounded">Salesforce</span>
+</label>
+<label class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-md">
+<input class="w-4 h-4 rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-md font-body-md text-on-surface">Allow external API calls</span>
+</div>
+<div class="flex items-center gap-xs text-tertiary">
+<span class="material-symbols-outlined">warning</span>
+<span class="text-label-md font-label-md">High Risk</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Visualization Panel -->
+<section class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden h-[300px] relative">
+
+<div class="absolute inset-0 p-lg flex flex-col justify-end">
+<div class="bg-surface/80 backdrop-blur-sm p-md border border-outline-variant rounded-lg max-w-sm">
+<h4 class="text-label-md font-label-md text-primary mb-xs">Policy Simulation</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Under current rules, <span class="text-on-surface font-medium">84%</span> of emails will be handled automatically, saving approx. <span class="text-on-surface font-medium">12.4 hours</span> per week.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Sticky Bottom Action Bar -->
+<footer class="fixed bottom-0 right-0 left-[240px] h-20 bg-surface border-t border-outline-variant px-margin-desktop flex items-center justify-between z-50">
+<div class="flex items-center gap-md text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">sync</span>
+<span>Unsaved changes detected in 4 sections.</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="px-lg py-sm text-label-md font-label-md text-on-surface hover:bg-surface-container-high rounded transition-all">Discard Changes</button>
+<button class="px-xl py-sm bg-primary-container text-surface font-label-md font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Save Policies</button>
+</div>
+</footer>
+</main>
+<!-- Visual Polish: Interactive Overlays -->
+<script>
+        // Micro-interactions for toggle switches and sliders
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                // Animation logic handled via CSS 'active' class
+            });
+        });
+
+        const rangeInput = document.querySelector('input[type="range"]');
+        const rangeDisplay = document.querySelector('.font-mono-sm');
+        if(rangeInput && rangeDisplay) {
+            rangeInput.addEventListener('input', (e) => {
+                rangeDisplay.textContent = e.target.value + '%';
+            });
+        }
+    </script>
+</body></html>
